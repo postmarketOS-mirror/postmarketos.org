@@ -29,6 +29,7 @@ WIKI_REDIRECTS = {
     "irc": "Matrix_and_IRC",
     "matrix": "Matrix_and_IRC",
     "merge": "Merge_Workflow",
+    "newarch": "Add_a_new_architecture_to_postmarketOS",
     "osk-port": "Osk-sdl#Porting_to_New_Devices",
     "troubleshooting": "Troubleshooting",
     "usbhook": "Inspecting_the_initramfs",
