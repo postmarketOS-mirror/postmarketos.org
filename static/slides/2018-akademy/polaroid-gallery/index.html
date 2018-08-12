@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="fr" class="fullscreen">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Polaroid Gallery</title>
+    <meta name="description" content="Javascript/CSS Polaroid Gallery - no dependencies"/>
+    <meta name="robots" content="noarchive">
+    <meta name="google" content="notranslate">
+    <meta name="author" content="© Glicer"/>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="css/polaroid-gallery.css"/>
+</head>
+<body class="fullscreen">
+<div id="gallery" class="fullscreen"></div>
+</body>
+<script type="text/javascript" src="js/polaroid-gallery.js"></script>
+<script>
+    window.onload = function () {
+        new polaroidGallery("data/data.json");
+    }
+</script>
+</html>
