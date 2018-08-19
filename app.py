@@ -31,6 +31,7 @@ WIKI_REDIRECTS = {
     "merge": "Merge_Workflow",
     "newarch": "Add_a_new_architecture_to_postmarketOS",
     "osk-port": "Osk-sdl#Porting_to_New_Devices",
+    "renamed": "Renamed_Devices",
     "troubleshooting": "Troubleshooting",
     "usbhook": "Inspecting_the_initramfs",
     "warning-repo": "Troubleshooting#Installed_version_newer_than_the_version_in_the_repositories",
