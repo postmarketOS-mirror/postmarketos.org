@@ -63,7 +63,7 @@ def logo_svg():
     return Response(response=logo.create(phone=False), mimetype="image/svg+xml")
 
 def parse_post(post, external_links=False, create_html=True):
-    with open(os.path.join(BLOG_CONTENT_DIR, post)) as handle:
+    with open(os.path.join(BLOG_CONTENT_DIR, post), encoding="utf-8") as handle:
         raw = handle.read()
     frontmatter, content = REGEX_SPLIT_FRONTMATTER.split(raw, 2)
 
@@ -116,7 +116,8 @@ def blog_post(y, m, d, slug):
 
 @app.route('/<page>.html')
 def static_page(page):
-    with open(os.path.join(PAGE_CONTENT_DIR, page + '.md')) as handle:
+    with open(os.path.join(PAGE_CONTENT_DIR, page + '.md'),
+              encoding="utf-8") as handle:
         raw = handle.read()
     frontmatter, content = REGEX_SPLIT_FRONTMATTER.split(raw, 2)
     data = yaml.load(frontmatter)
