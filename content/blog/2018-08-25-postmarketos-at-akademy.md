@@ -2,8 +2,6 @@ title: "postmarketOS at Akademy 2018"
 date: 2018-08-25
 ---
 
-[TOC]
-
 Two weeks ago was [Akademy 2018](https://akademy.kde.org/2018), KDE's yearly gathering to talk about and develop all things KDE. Since Plasma Mobile ([which we have packaged](https://postmarketos.org/blog/2017/12/31/219-days-of-postmarketOS/#plasma-mobile)) was of course also represented, a few members of the postmarketOS team decided to attend and meet each other for the first time! [@ollieparanoid](https://gitlab.com/ollieparanoid) even took it upon himself to hold a talk about our project, telling everyone what it's about and what progress has been made since the start. You can [view the slides here](/static/slides/2018-akademy/) and this blog post will be updated to include a link to the video of the talk once Akademy's recordings are put online.
 
 Besides our own talk, our friend [@bshah](https://gitlab.com/bshah) from Plasma Mobile also had a talk about the progress on running the mainline kernel rather than libhybris or Halium to achieve fully working hardware ([slides are available as well](https://blog.bshah.in/slides/akademy2018/)). We used this oppertunity to talk with the Plasma Mobile team directly and discuss the future and exchange ideas.
@@ -24,3 +22,7 @@ From left to right:
 [@JBBgameich](https://gitlab.com/JBBgameich)
 
 PS: Shout out to all the Mastodon users, who keep on posting cool [pmOS related content](https://mastodon.technology/tags/postmarketos). [@theblackcrow1](https://gitlab.com/theblackcrow1) set up [@postmarketOS](https://fosstodon.org/@postmarketOS), so you can enjoy small updates from our side right in your favorite free software social network.
+
+### Comments
+* [Reddit](https://www.reddit.com/r/postmarketOS/duplicates/9a2nzf/postmarketos_at_akademy_2018/)
+* [HN](https://news.ycombinator.com/item?id=17838788)
