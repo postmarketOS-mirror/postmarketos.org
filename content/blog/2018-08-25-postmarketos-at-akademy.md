@@ -10,6 +10,8 @@ Also present was TL Lim from [PINE64](https://pine64.org) who kindly offered sev
 
 Read the [Plasma Mobile's blog post](https://www.plasma-mobile.org/2018/08/23/Plasma-Mobile-at-Akademy-2018.html) for more Akademy 2018.
 
+### UPDATE: The [video recordings](https://cdn.files.kde.org/akademy/2018/videos/) of the talks are online!
+
 [![](/static/img/2018-08/pmos-plamo-akademy2018.jpg)](/static/img/2018-08/pmos-plamo-akademy2018.jpg)
 
 From left to right:
