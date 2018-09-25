@@ -30,6 +30,7 @@ WIKI_REDIRECTS = {
     "matrix": "Matrix_and_IRC",
     "merge": "Merge_Workflow",
     "newarch": "Add_a_new_architecture_to_postmarketOS",
+    "oldkernel": "Troubleshooting:host#Host_system_kernel_is_older_than_3.17",
     "osk-port": "Osk-sdl#Porting_to_New_Devices",
     "renamed": "Renamed_Devices",
     "troubleshooting": "Troubleshooting",
