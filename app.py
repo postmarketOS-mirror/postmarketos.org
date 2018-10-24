@@ -32,6 +32,7 @@ WIKI_REDIRECTS = {
     "newarch": "Add_a_new_architecture_to_postmarketOS",
     "oldkernel": "Troubleshooting:host#Host_system_kernel_is_older_than_3.17",
     "osk-port": "Osk-sdl#Porting_to_New_Devices",
+    "recoveryzip": "Android_Recovery_Zip_Installation",
     "renamed": "Renamed_Devices",
     "troubleshooting": "Troubleshooting",
     "usbhook": "Inspecting_the_initramfs",
