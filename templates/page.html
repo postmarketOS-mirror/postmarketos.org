@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}postmarketOS // {{ title }}{% endblock %}
+
+{%block extra_link %}
+<link rel="stylesheet" href="/static/css/page.css">
+{%endblock%}
 
 {% block body %}
-<article class="pa3 lh-copy">
-    <h1 class="f2 f2-ns">{{ title }}</h1>
+<div class="title">
+    <h1>{{ title }}</h1>
+</div>
+<div class="separator"></div>
+
+<article class="content alt">
     {{ html|safe }}
 </article>
 {% endblock %}

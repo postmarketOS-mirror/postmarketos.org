@@ -1,3 +1,4 @@
+import collections
 import logo
 import markdown
 import os
@@ -8,6 +9,9 @@ from datetime import datetime
 from flask import Flask, render_template, url_for, Response, request, send_file
 from werkzeug.contrib.atom import AtomFeed
 from os import listdir
+
+# current dir
+import page
 
 
 app = Flask(__name__)
@@ -66,6 +70,11 @@ def logo_svg():
     return Response(response=logo.create(phone=False), mimetype="image/svg+xml")
 
 def parse_post(post, external_links=False, create_html=True):
+    """ :returns: a parsed post, something like this:
+                  {"html": "<parsedhtmlcode...",
+                   "url": "url/to/the/post",
+                   "reading_time": "10 min",
+                   "year": 2019} """
     with open(os.path.join(BLOG_CONTENT_DIR, post), encoding="utf-8") as handle:
         raw = handle.read()
     frontmatter, content = REGEX_SPLIT_FRONTMATTER.split(raw, 2)
@@ -79,21 +88,35 @@ def parse_post(post, external_links=False, create_html=True):
             'markdown.extensions.extra',
             'markdown.extensions.codehilite',
             'markdown.extensions.toc'
-        ])
+        ], extension_configs={"markdown.extensions.toc": {"anchorlink": True}})
+        data['html'] = page.replace(data['html'])
 
     data['url'] = url_for('blog_post', y=y, m=m, d=d, slug=slug,
                           _external=external_links)
     data['reading_time'] = reading_time(content)
+    data['year'] = y
 
     return data
 
 def get_posts(**kwargs):
+    """ :returns: posts categorized by year, looks like:
+                  {2019: [post1, post2, ...], 2018: [...], ...}
+                  post1, post2 are the posts as returned by parse_post() above.
+    """
     posts = sorted(listdir(BLOG_CONTENT_DIR), reverse=True)
-    return (parse_post(post, **kwargs) for post in posts)
+    ret = collections.OrderedDict()
+    for post in posts:
+        parsed = parse_post(post, **kwargs)
+        year = parsed['year']
+        if not year in ret:
+            ret[year] = []
+        ret[year].append(parsed)
+    return ret
 
 @app.route('/blog/')
 def blog():
-    return render_template('blog.html', posts=get_posts(create_html=False))
+    return render_template('blog.html',
+                           year_posts=get_posts(create_html=False))
 
 @app.route('/blog/feed.atom')
 def atom():
@@ -103,13 +126,15 @@ def atom():
                     title='postmarketOS Blog',
                     url=url_for('blog', _external=True))
 
-    for post in get_posts(external_links=True):
-        feed.add(content=post['html'],
-                 content_type='html',
-                 title=post['title'],
-                 url=post['url'],
-                 # midnight
-                 updated=datetime.combine(post['date'], datetime.min.time()))
+    for year, posts in get_posts(external_links=True).items():
+        for post in posts:
+            feed.add(content=post['html'],
+                     content_type='html',
+                     title=post['title'],
+                     url=post['url'],
+                     # midnight
+                     updated=datetime.combine(post['date'],
+                                              datetime.min.time()))
     return feed.get_response()
 
 @app.route('/blog/<y>/<m>/<d>/<slug>/')
@@ -128,7 +153,7 @@ def static_page(page):
         'markdown.extensions.extra',
         'markdown.extensions.codehilite',
         'markdown.extensions.toc'
-    ])
+    ], extension_configs={"markdown.extensions.toc": {"anchorlink": True}})
     return render_template('page.html', **data)
 
 
