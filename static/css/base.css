@@ -1,0 +1,314 @@
+/* Copyright 2018 Oliver Smith
+   SPDX-License-Identifier: GPL-3.0-or-later */
+
+/* LINKS */
+a {
+    color: black;
+}
+
+a:hover {
+   color: #0d8000;
+}
+
+/* GRID: OUTER */
+body {
+    display: grid;
+    grid-template-areas: ". header ."
+                         ". main ."
+                         ". footer .";
+    grid-template-columns: auto minmax(360px, 1024px) auto;
+    margin: 0px;
+
+    background: white;
+    font-family: sans-serif;
+    line-height: 2;
+    font-size: 15pt;
+}
+
+/* MAIN */
+main {
+    grid-area: main;
+}
+
+h1 {
+    font-size: 25pt;
+}
+
+.content {
+    padding: 10px 30px 40px;
+}
+
+.content.alt {
+    background: #eee;
+}
+
+.codehilite pre {
+    font-size: 10pt;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.separator {
+    background-image: url(/static/img/nexus5-bg-bottom.jpg);
+    height: 10px;
+}
+
+/* GRID: HEADER */
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template-areas: "logo . nav"
+                         ".    . nav"
+                         ".    .   ."
+                         "slogan . ."
+                         "slogan . disclaimer";
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto
+                        auto
+                        1fr
+                        auto
+                        auto;
+
+    min-height: 480px;
+
+    background-image: url(/static/img/nexus5-bg.jpg);
+    background-repeat: no-repeat;
+    background-position: left bottom;
+}
+
+/* SLOGAN AND DISCLAIMER */
+.slogan {
+    grid-area: slogan;
+    padding: 30px;
+
+    color: white;
+    font-size: 25pt;
+    font-weight: bold;
+    line-height: 35pt;
+}
+
+.slogan small {
+    font-size: 15pt;
+    line-height: 1;
+}
+
+.disclaimer {
+    grid-area: disclaimer;
+    margin: 15px 30px;
+    padding: 3px 7px;
+
+    background: black;
+    color: white;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+/* GRID: LOGO */
+.logo {
+    grid-area: logo;
+    display: grid;
+    grid-template-areas: "logo-img ."
+                         "logo-img logo-span"
+                         "logo-img .";
+    grid-template-columns: 90px 1fr;
+    grid-template-rows: 10px
+                        1fr
+                        15px;
+    padding: 10px 20px 0px;
+    margin-left: 30px;
+    min-height: 90px;
+
+    background: white;
+    text-decoration: none;
+}
+
+.logo img {
+    grid-area: logo-img;
+
+    width: 75px;
+    height: 75px;
+}
+
+.logo span {
+    grid-area: logo-span;
+    font-size: 25pt;
+}
+
+/* GRID: NAVIGATION */
+.nav {
+    grid-area: nav;
+    display: grid;
+    grid-template-areas: "nav-row1"
+                         "."
+                         "nav-row2"
+                         "."
+                         "nav-row3";
+    grid-template-rows: auto
+                        6px
+                        auto
+                        6px
+                        auto;
+    text-align: right;
+    margin: 15px 30px;
+}
+
+.nav-row1 {
+    grid-area: nav-row1;
+}
+
+.nav-row2 {
+    grid-area: nav-row2;
+}
+
+.nav-row3 {
+    grid-area: nav-row3;
+}
+
+.nav a {
+    font-size: 10pt;
+    background: white;
+    padding: 5px 4px;
+    margin-left: 2px;
+    font-weight: bold;
+}
+
+.nav-row1 a {
+    font-size: 15pt;
+}
+
+
+/* GRID: FOOTER */
+footer {
+    grid-area: footer;
+    display: grid;
+    grid-template-areas: "contribute . nav-bottom"
+                         "contribute . copyright";
+    grid-template-columns: auto 1fr auto;
+
+    background-image: url(/static/img/nexus5-bg-bottom.jpg);
+}
+
+.nav-bottom {
+    grid-area: nav-bottom;
+    margin: 15px 30px 0px;
+
+    text-align: right;
+}
+
+.nav-bottom img {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+.nav-bottom a {
+    background: white;
+    padding: 5px 10px;
+    margin-left: 10px;
+}
+
+.copyright {
+    grid-area: copyright;
+
+    color: white;
+    margin: 5px 30px 15px;
+    font-size: 11pt;
+    text-align: right;
+}
+
+.nav-bottom:hover img, .contribute:hover img {
+    /* obviously this changes the color to green */
+    filter: sepia(1) saturate(5) hue-rotate(80deg);
+}
+
+/* GRID: CONTRIBUTE */
+.contribute {
+    grid-area: contribute;
+    display: grid;
+    grid-template-areas: "contrib-img contrib-span";
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: 2px
+                        1fr;
+
+    background: white;
+    padding: 10px 20px 0px;
+    margin: 15px 30px;
+
+    text-decoration: none;
+    font-size: 20pt;
+    height: 60px;
+}
+
+.contribute img {
+    grid-area: contrib-img;
+
+    width: 48px;
+    height: 48px;
+}
+.contribute span {
+    grid-area: contrib-span;
+}
+
+
+/* RESPONSIVENESS */
+@media screen and (max-width: 800px) {
+    /* HEADER */
+	.header {
+		grid-template-areas: "logo"
+                             "nav"
+                             "slogan"
+                             "disclaimer";
+		grid-template-columns: 100%;
+	}
+    .logo {
+        margin-left: 0px;
+        padding-left: 30px;
+    }
+    .logo span {
+        font-size: 20pt;
+    }
+    .nav {
+        text-align: left;
+        margin-left: 30px;
+    }
+    .nav a {
+        margin-left: 0px;
+        margin-right: 5px;
+    }
+    .disclaimer {
+        margin: 10px 30px 15px;
+    }
+
+    /* MAIN */
+    .codehilite pre {
+        font-size: 8pt;
+    }
+
+    /* FOOTER */
+    footer {
+        grid-template-areas: "nav-bottom"
+                             "contribute"
+                             "copyright";
+		grid-template-columns: 100%;
+    }
+
+    .nav-bottom {
+        text-align: left;
+    }
+
+    .nav-bottom a {
+        display: inline-block;
+        padding: 0px 10px;
+        margin: 0px 10px 15px 0px;
+        font-size: 12pt;
+    }
+
+    .contribute {
+        margin: 0px 30px 0px;
+    }
+
+    .copyright {
+        text-align: left;
+        margin: 15px 30px;
+    }
+}

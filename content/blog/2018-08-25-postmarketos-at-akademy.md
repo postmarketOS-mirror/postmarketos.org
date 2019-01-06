@@ -12,7 +12,7 @@ Read the [Plasma Mobile's blog post](https://www.plasma-mobile.org/2018/08/23/Pl
 
 ### UPDATE: The [video recordings](https://cdn.files.kde.org/akademy/2018/videos/) of the talks are online!
 
-[![](/static/img/2018-08/pmos-plamo-akademy2018.jpg)](/static/img/2018-08/pmos-plamo-akademy2018.jpg)
+[![](/static/img/2018-08/pmos-plamo-akademy2018.jpg){: class="wfull border" }](/static/img/2018-08/pmos-plamo-akademy2018.jpg)
 
 From left to right:
 [@ata2001](https://gitlab.com/ata2001),

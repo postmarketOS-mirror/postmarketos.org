@@ -1,0 +1,106 @@
+/* Copyright 2018 Oliver Smith
+   SPDX-License-Identifier: GPL-3.0-or-later
+
+   This file is used for single blog posts and for pages (e.g. FAQ). */
+
+/* HEADLINES WITH TOC-LINKS */
+.toclink {
+    text-decoration: none;
+}
+
+.toclink:hover {
+    text-decoration: underline;
+}
+
+/* TITLE RELATED */
+.title {
+    display: grid;
+    grid-template-areas: "title title"
+                         "date reading_time";
+    margin: 20px 30px 0px;
+}
+
+.title h1 {
+    grid-area: title;
+    margin: 60px 0px;
+
+    font-size: 30pt;
+    text-align: center;
+    line-height: 50pt;
+    display: block;
+
+    /* treat \n like <br> (we can replace ":" with ":\n" in post titles) */
+    white-space: pre-line;
+}
+
+.date {
+    grid-area: date;
+}
+
+.reading_time {
+    grid-area: reading_time;
+    text-align: right;
+}
+
+/* IMAGES */
+img.w200 {
+    width: 200px;
+}
+img.wfull {
+    width: 100%;
+}
+img.border {
+    border: 1px solid lightgrey;
+}
+
+/* GRID */
+.grid {
+    display: grid;
+    grid-template-areas: "text   . side"
+                         "bottom . side";
+    grid-template-columns: auto 20px auto;
+}
+
+.grid-text {
+    grid-area: text;
+}
+
+.grid-side {
+    grid-area: side;
+    text-align: right;
+}
+.grid-side img,
+.grid-side video {
+    max-width: 100%;
+}
+
+.grid-bottom {
+    grid-area: bottom:
+}
+.grid-bottom img,
+.grid-bottom video {
+    border: 1px solid lightgrey;
+}
+
+
+/* RESPONSIVENESS */
+@media screen and (max-width: 800px) {
+	.grid {
+		grid-template-areas: "side"
+                             "text"
+                             "bottom";
+		grid-template-columns: 100%;
+	}
+    .grid-side {
+        text-align: center;
+    }
+    .grid-bottom {
+        text-align: center;
+    }
+}
+@media screen and (max-width: 400px) {
+	.date,
+    .reading_time {
+        font-size: 12pt;
+    }
+}

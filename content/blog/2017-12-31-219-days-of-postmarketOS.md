@@ -2,8 +2,6 @@ title: 219 days of postmarketOS
 date: 2017-12-31
 ---
 
-[TOC]
-
 ## Few Years Old Devices Should Not Be Electronic Waste
 
 Most people around us have accepted that it is necessary to **buy a new phone every other year**. As a smartphone progresses through its own life cycle, manufacturer support for new features become rare, eventually stopping, and the device gets **[slower and slower](https://www.geekbench.com/blog/2017/12/iphone-performance-and-battery-age/)**. Even worse, after this period, the devices don't get **[security updates](https://threatpost.com/stagefright-2-0-vulnerabilities-affect-1-billion-android-devices/114863/)** anymore. This means that in many cases the bored IT student next door is able to look up on the Internet how to turn your phone into a surveillance device. Unfortunately the only way to continue to receive security updates after this point is to purchase a new device. In lieu of any alternatives today, you really should purchase a new device to stay current with security updates.
@@ -14,33 +12,36 @@ We want to have another option: **postmarketOS** is a Linux distribution based o
 
 ### Plasma Mobile
 
-[![Plasma Mobile running on the sony-castor-windy with freedreno](/static/img/2017-12/plasma-castor-thumb.gif){: class="fr ml3 mb3" rel="nofollow" }](/static/video/2017-12/plasma-castor.mp4)
+[#grid side#]
+[![Plasma Mobile running on the sony-castor-windy with freedreno](/static/img/2017-12/plasma-castor-thumb.gif){: class="border" rel="nofollow" }](/static/video/2017-12/plasma-castor.mp4)
 
+[#grid text#]
 The Wayland reference compositor [Weston](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)#Weston) was the first interface we [had running on our devices](https://postmarketos.org/static/img/2017-05-26/i9100-filled.jpg). Good enough for a demo, but to get a **real tablet/smartphone experience** we always had an eye on KDE's [**Plasma Mobile**](https://plasma-mobile.org/) project. After countless hours of hard work we are proud to finally present it running **on real devices!**
+[#grid end#]
 
 Running plasma on real devices with postmarketOS is brand new, which means it has not been tested much and it is **far from a polished experience**. With that being said, it looks like it starts on most devices that can already run Weston but devices with hardware acceleration for graphics are much more usable at this point. The Z2 Tablet is one of the two devices booting postmarketOS and supporting hardware acceleration with the open user space driver [freedreno](https://github.com/freedreno/freedreno/wiki). All other devices must use OpenGL emulation in software due to them requiring proprietary GL drivers. We do have various ideas on improving the situation, such as [better software rendering](https://wiki.postmarketos.org/wiki/Software_OpenGL) or mainlining the devices and using FLOSS userspace drivers where possible.
 
 The gif shows Plasma running on the [Sony Xperia Z2 Tablet](https://wiki.postmarketos.org/wiki/Sony_Xperia_Z2_Tablet_(sony-castor-windy)) (click on it to see the full video). Below we show it on the [Google Nexus 5](https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead)), [Samsung Galaxy S Advance](https://wiki.postmarketos.org/wiki/Samsung_Galaxy_S_Advance_(samsung-i9070)), [Sony Xperia Z1 Compact](https://wiki.postmarketos.org/wiki/Sony_Xperia_Z1_Compact_(sony-amami)) and again on the Z2 Tablet, but this time with [@MartijnBraam](https://github.com/MartijnBraam)'s postmarketOS wallpaper straight from our new [artwork](https://github.com/postmarketOS/artwork) repository.
 
 
-[![](/static/img/2017-12/plasma-hammerhead-thumb.jpg){: class="fl mr3 mb3"}](/static/img/2017-12/plasma-hammerhead.jpg)
-
-[![](/static/img/2017-12/plasma-i9070-thumb.jpg){: class="fl mr3"}](/static/img/2017-12/plasma-i9070.jpg)
-
-[![](/static/img/2017-12/plasma-amami-3x-thumb.jpg){: class="fl mr3"}](/static/img/2017-12/plasma-amami-3x.jpg)
-
-[![](/static/img/2017-12/plasma-castor2-thumb.jpg){: class="fl mr3"}](/static/img/2017-12/plasma-castor2.jpg)
-
-<div class="cf"></div>
+[#grid bottom#]
+[![](/static/img/2017-12/plasma-hammerhead-thumb.jpg)](/static/img/2017-12/plasma-hammerhead.jpg)
+[![](/static/img/2017-12/plasma-i9070-thumb.jpg)](/static/img/2017-12/plasma-i9070.jpg)
+[![](/static/img/2017-12/plasma-amami-3x-thumb.jpg)](/static/img/2017-12/plasma-amami-3x.jpg)
+[![](/static/img/2017-12/plasma-castor2-thumb.jpg)](/static/img/2017-12/plasma-castor2.jpg)
+[#grid end#]
 
 *Thanks to: [@ata2001](https://github.com/ata2001), [@bshah](https://github.com/bhush9), [@drebrez](https://github.com/drebrez), [@MartijnBraam](https://github.com/MartijnBraam), [@NotKit](https://github.com/NotKit), [@PureTryOut](https://github.com/PureTryOut), [@opendata26](https://github.com/opendata26), [@zhuowei](https://github.com/zhuowei)*
 
 
 ### LuneOS UI
 
-[![](/static/img/2017-12/luna-qemu-thumb.png){: class="fr ml3 mb3" }](/static/img/2017-12/luna-qemu.png)
+[#grid side#]
+[![](/static/img/2017-12/luna-qemu-thumb.png){: class="border" }](/static/img/2017-12/luna-qemu.png)
 
+[#grid text#]
 Historically [LuneOS](https://en.wikipedia.org/wiki/LuneOS) and its interface have their roots in **webOS from late Palm devices**. It was rewritten from scratch to use modern technologies, such as Wayland. The UI is based on the concept of *cards* for various apps, which can be swiped away to close them, and related cards can be grouped to *stacks*. That sounds familiar, right?
+[#grid end#]
 
 Much of the UI and default applications are actually implemented as HTML web applications, thus the name webOS. During the porting we have learned that it is possible to run **non-HTML applications as well**, such as Wayland or even [X applications](https://github.com/postmarketOS/pmbootstrap/issues/629#issuecomment-349463841).
 
@@ -48,41 +49,40 @@ Much of the UI and default applications are actually implemented as HTML web app
 
 Since Plasma Mobile and LuneOS share similar technologies, they have similar porting problems - and it's good for development to be able to look at problems from different angles through both UI ports. Before we continue, we should mention that **whole process** from asking *"hey how about packaging LuneOS UI"* to running it within postmarketOS on a device took **less than two months!**
 
-[![](/static/img/2017-12/luna-lock-thumb.jpg){: class="fl mr3"}](/static/img/2017-12/luna-lock.jpg)
+[#grid bottom#]
+[![](/static/img/2017-12/luna-lock-thumb.jpg)](/static/img/2017-12/luna-lock.jpg)
+[![](/static/img/2017-12/luna-firstrun-thumb.jpg)](/static/img/2017-12/luna-firstrun.jpg)
+[![](/static/img/2017-12/luna-droid4-thumb.jpg)](/static/img/2017-12/luna-droid4.jpg)
+[![](/static/img/2017-12/luna-x80pro-thumb.jpg)](/static/img/2017-12/luna-x80pro.jpg)
+[#grid end#]
 
-[![](/static/img/2017-12/luna-firstrun-thumb.jpg){: class="fl mr3"}](/static/img/2017-12/luna-firstrun.jpg)
-
-[![](/static/img/2017-12/luna-droid4-thumb.jpg){: class="fl mr3"}](/static/img/2017-12/luna-droid4.jpg)
-
-[![](/static/img/2017-12/luna-x80pro-thumb.jpg){: class="fl mr3"}](/static/img/2017-12/luna-x80pro.jpg)
-
-<div class="cf"></div>
 *Thanks to: [@magmastonealex](https://github.com/magmastonealex), [@NotKit](https://github.com/NotKit), [@PureTryOut](https://github.com/PureTryOut), [@zhuowei](https://github.com/zhuowei)*
 
 ### Hildon, Gnome, MATE and XFCE4
 
-[![](/static/img/2017-12/hildon-i9070-thumb.png){: class="fr ml3 mb3"}](/static/img/2017-12/hildon-i9070.png)
+[#grid side#]
+[![](/static/img/2017-12/hildon-i9070-thumb.png)](/static/img/2017-12/hildon-i9070.png)
 
+[#grid text#]
 You see where we're heading with this: we got all of these environments running on real devices. [**Hildon**](https://postmarketos.org/blog/2017/09/03/100-days-of-postmarketos/#hildon) was [updated](https://github.com/postmarketOS/pmbootstrap/pull/1015) by [@NotKit](https://github.com/NotKit) to use sources from [Maemo Leste](https://maemo-leste.github.io), which continues development upstream. More applications have been packaged, notably `hildon-home` which allows launching apps by touching icons.
+[#grid end#]
 
+[#grid side#]
 [![](/static/img/2017-12/mate-i9070-thumb.png){: class="fr ml3 mb3 cr" }](/static/img/2017-12/mate-i9070.jpg)
 
+[#grid text#]
 The other three desktops are already maintained upstream in Alpine, which means we can just install them with little or no modifications. [@opendata26](https://github.com/opendata26) made a proof of concept running **Gnome 3** after applying a few hacks. There is a photo below with Gnome 3 on a Z2 Tablet running Firefox and watching a YouTube video. [@drebrez](https://github.com/drebrez) is [working on](https://github.com/postmarketOS/pmbootstrap/pull/1012) proper integration for **MATE** as you can see on the right.
+[#grid end#]
 
 Finally **XFCE4** was [pre-configured](https://github.com/postmarketOS/pmbootstrap/pull/695) by [@pavelmachek](https://github.com/pavelmachek). In order to make it usable on his [Nokia N900](https://wiki.postmarketos.org/wiki/Nokia_N900_(nokia-rx51)), he also [contributed](https://github.com/postmarketOS/pmbootstrap/pull/643) the `unicsy_demo` package, which reads various sensors and is able to send and receive SMS on his device after some manual preparation. [@drebrez](https://github.com/drebrez) [packaged](https://github.com/postmarketOS/pmbootstrap/pull/1001) the `matchbox-keyboard` to be used on interfaces lacking their own on screen keyboard. We can happily confirm that XFCE4 and MATE work well even ***without* hardware accelerated graphics!**
 
+[#grid bottom#]
+[![](/static/img/2017-12/gnome3-castor-thumb.jpg)](/static/img/2017-12/gnome3-castor.jpg)
+[![](/static/img/2017-12/xfce4-maguro-thumb.jpg)](/static/img/2017-12/xfce4-maguro.jpg)
+[![](/static/img/2017-12/xfce4-hammerhead-thumb.jpg)](/static/img/2017-12/xfce4-hammerhead.jpg)
+[![](/static/img/2017-12/xfce4-i9505-thumb.jpg)](/static/img/2017-12/xfce4-i9505.jpg)
+[#grid end#]
 
-[![](/static/img/2017-12/gnome3-castor-thumb.jpg){: class="fl mr3 mb3"}](/static/img/2017-12/gnome3-castor.jpg)
-
-
-[![](/static/img/2017-12/xfce4-maguro-thumb.jpg){: class="fl mr3 mb3"}](/static/img/2017-12/xfce4-maguro.jpg)
-
-
-[![](/static/img/2017-12/xfce4-hammerhead-thumb.jpg){: class="fl mr3 mb3"}](/static/img/2017-12/xfce4-hammerhead.jpg)
-
-[![](/static/img/2017-12/xfce4-i9505-thumb.jpg){: class="fl mr3 mb3"}](/static/img/2017-12/xfce4-i9505.jpg)
-
-<div class="cf"></div>
 *Thanks to: [@drebrez](https://github.com/drebrez), [@NotKit](https://github.com/NotKit), [@opendata26](https://github.com/opendata26), [@pavelmachek](https://github.com/pavelmachek)*
 
 ## Libre Drivers and Libhybris
@@ -95,38 +95,46 @@ While we don't welcome binary blobs and prefer to sandbox them where we ship the
 
 ## Mainline Linux Kernel
 ### Android Based Devices
+[#grid side#]
 [![](/static/img/2017-12/mainline-i9305-thumb.png){: class="fr ml3 mb3" }](/static/img/2017-12/mainline-i9305.jpg)
 
-
+[#grid text#]
 It's always a super exciting time for [#postmarketOS](https://wiki.postmarketos.org/wiki/Matrix_and_IRC) when someone posts the **first photo** of their smartphone **running on a mainline kernel**, oftentimes with a distorted screen. Enjoy such pictures of the [Google Nexus 5](https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead)) ([@bshah](https://github.com/bhush9)) and [Fairphone 2](https://wiki.postmarketos.org/wiki/Fairphone-2) ([@z3ntu](https://github.com/z3ntu)) below. The [Sony Xperia Z1 Compact](https://wiki.postmarketos.org/wiki/Sony_Xperia_Z1_Compact_(sony-amami)) ([@ata2001](https://github.com/ata2001)) boots a mainline kernel as well, however the screen does not work yet.
 
 Together with the [Google Nexus 7 (2013)](https://wiki.postmarketos.org/wiki/Google_Nexus_7_2013_(asus-flo)), [Teclast X80 Pro](https://wiki.postmarketos.org/wiki/Teclast_X80_Pro_(teclast-x80pro)) and the [Xperia Z2 Tablet](https://wiki.postmarketos.org/wiki/Sony_Xperia_Z2_Tablet_(sony-castor-windy)) &mdash; where [@opendata26](https://github.com/opendata26) fixed a mmc regression introduced with newer kernels &mdash; we now have **six Android-based devices packaged with partial mainline support**. We are still at the beginning of unifying them into one `linux-postmarketos-stable` package, but it's a huge step in the right direction!
+[#grid end#]
 
 While this blog post was in the making, [@fourkbomb](https://github.com/fourkbomb) showed us **even more mainlining progress**. This work is *not* packaged for postmarketOS yet, and he used **[`kexec`](https://forkwhiletrue.me/posts/kexec-on-galaxy-s3/)** to boot from the original kernel forks to the mainline kernel. Nevertheless, the results are impressive! On the right is the [Samsung Galaxy SIII LTE](https://wiki.postmarketos.org/wiki/Samsung_Galaxy_SIII_LTE_(samsung-i9305)) (`i9305`) running mainline (as you can see in the terminal when clicking on it). As if that wasn't cool enough he made it work on similar Samsungs ([`i9300`](/static/img/2017-12/mainline-i9300.jpg), [`n7100`](/static/img/2017-12/mainline-n7100.jpg), [`n7105`](/static/img/2017-12/mainline-n7105.jpg)) as well!
 
-[![](/static/img/2017-12/mainline-hammerhead-thumb.jpg){: class="fl mr3 mb3"}](/static/img/2017-12/mainline-hammerhead.jpg)
+[#grid bottom#]
+[![](/static/img/2017-12/mainline-hammerhead-thumb.jpg)](/static/img/2017-12/mainline-hammerhead.jpg)
+[![](/static/img/2017-12/mainline-fp2-thumb.jpg)](/static/img/2017-12/mainline-fp2.jpg)
+[#grid end#]
 
-[![](/static/img/2017-12/mainline-fp2-thumb.jpg){: class="fl mr3 mb3"}](/static/img/2017-12/mainline-fp2.jpg)
-
-<div class="cf"></div>
 *Thanks to: [@ata2001](https://github.com/ata2001), [@bshah](https://github.com/bhush9),
 [@fourkbomb](https://github.com/fourkbomb), [@magmastonealex](https://github.com/magmastonealex), [@montvid](https://github.com/montvid), [@opendata26](https://github.com/opendata26), [@z3ntu](https://github.com/z3ntu)*
 
 ### Nokia N9xx Devices
-[![](/static/img/2017-12/mainline-rm-969-thumb.jpg){: class="fr ml3 mb3" }](/static/img/2017-12/mainline-rm-969.jpg)
-
 [Camera support](https://www.youtube.com/watch?v=fH6zuK2OOVU) for the **[N900](https://wiki.postmarketos.org/wiki/Nokia_N900_(nokia-rx51))** was merged by [@pavelmachek](https://github.com/pavelmachek). There's still a lot of work to do in kernel and user space, but the classic N900's hardware support is getting better. The only major areas not supported are Bluetooth and 3D acceleration.
 
+[#grid side#]
+[![](/static/img/2017-12/mainline-rm-969-thumb.jpg){: class="border"}](/static/img/2017-12/mainline-rm-969.jpg)
+
+[#grid text#]
 **[Nokia N9](https://wiki.postmarketos.org/wiki/Nokia_N9)** packaging for postmarketOS with the mainline kernel is [ongoing](https://github.com/postmarketOS/pmbootstrap/pull/1046) now that [@filippz](https://github.com/filippz) [made it work](https://mobile.twitter.com/fi1ippz/status/945692340194349056) (photo on the right shows the N9 during [earlier porting stages](https://mobile.twitter.com/fi1ippz/status/927581300197863427)). [@sre](https://github.com/sre) has done a lot of work on display support for TI OMAP, and this work is slowly being merged into the mainline kernel. Support for battery status on N9 and [N950](https://en.wikipedia.org/wiki/N950) should be ready in kernel v4.15. In addition, light sensor drivers are now working. While this is amazing progress, a lot more work still needs to be done for these devices. For instance battery charging, a staple feature for smartphones, is currently not working yet.
+[#grid end#]
 
 *Thanks to: [@filippz](https://github.com/filippz), [@pavelmachek](https://github.com/pavelmachek), [@sre](https://github.com/sre)*
 
 ## New Devices
 Despite not being a smartphone or tablet, this next device is still right at home in this section: [@dee-gomma](https://github.com/dee-gomma) managed to run and demonstrate basic functionality of `pmbootstrap` on a 32 bit "postmarket PC", check out [his instructions](https://github.com/postmarketOS/pmbootstrap/issues/933) if you still own such an old computer and feel adventurous.
 
-[![](/static/img/2017-12/new-s6500d-thumb.png){: class="fr ml3 mb3"}](/static/img/2017-12/new-s6500d.jpg)
-
 But what you are really looking for are the new supported devices running postmarketOS, right? Most people expect a certain level of functionality on *supported* devices, and almost all expect that a supported device can be used as daily driver. As a result, this section has historically started off with a disclaimer that our definition of "supported" essentially means that the devices will successfully boot postmarketOS. This time, however, we have decided to [abandon the term "supported" altogether](https://github.com/postmarketOS/wiki/issues/12) in order to help minimize confusion. Here are **twenty-five new devices**, on which **postmarketOS boots**. Click on them for detailed information about what works and what does not.
+
+[#grid side#]
+[![](/static/img/2017-12/new-s6500d-thumb.png)](/static/img/2017-12/new-s6500d.jpg)
+
+[#grid text#]
 
 * [Amazon Kindle Fire HDX `(amazon-thor)`]( https://wiki.postmarketos.org/wiki/Amazon_Kindle_Fire_HDX) *(first below)*
 * [Fairphone 2 `(fairphone-fp2)`](https://wiki.postmarketos.org/wiki/Fairphone_2_(fairphone-fp2))
@@ -153,21 +161,17 @@ But what you are really looking for are the new supported devices running postma
 * [Teclast X80 Pro `(teclast-x80pro)`](https://wiki.postmarketos.org/wiki/Teclast_X80_Pro_(teclast-x80pro))
 * [Wiko Lenny 3 `(wiko-lenny3)`](https://wiki.postmarketos.org/wiki/Wiko_Lenny_3_(wiko-lenny3))
 * [Xiaomi RedMi3 `(xiaomi-ido)`](https://wiki.postmarketos.org/wiki/Xiaomi_RedMi3_(xiaomi-ido))
+[#grid end#]
 
 The best way to get an overview of all devices at once is the [devices](https://wiki.postmarketos.org/wiki/Devices) page on the wiki. As of today, for example, it shows that we have **18 devices with working [Wi-Fi](https://wiki.postmarketos.org/wiki/Wifi)**.
 
+[#grid bottom#]
+[![](/static/img/2017-12/new-thor-thumb.jpg)](/static/img/2017-12/new-thor.jpg)
+[![](/static/img/2017-12/new-glass-thumb.jpg)](/static/img/2017-12/new-glass.jpg)
+[![](/static/img/2017-12/new-dory-thumb.jpg)](/static/img/2017-12/new-dory.jpg)
+[![](/static/img/2017-12/new-honami-thumb.jpg)](/static/img/2017-12/new-honami.jpg)
+[#grid end#]
 
-[![](/static/img/2017-12/new-thor-thumb.jpg){: class="fl mr3 mb3"}](/static/img/2017-12/new-thor.jpg)
-
-[![](/static/img/2017-12/new-glass-thumb.jpg){: class="fl mr3 mb3"}](/static/img/2017-12/new-glass.jpg)
-
-[![](/static/img/2017-12/new-dory-thumb.jpg){: class="fl mr3 mb3"}](/static/img/2017-12/new-dory.jpg)
-
-[![](/static/img/2017-12/new-honami-thumb.jpg){: class="fl mr3 mb3"}](/static/img/2017-12/new-honami.jpg)
-
-
-
-<div class="cf"></div>
 *Thanks to: [@ata2001](https://github.com/ata2001) [@dakk](https://github.com/dakk) [@dee-gomma](https://github.com/dee-gomma) [@drebrez](https://github.com/drebrez) [@flacks](https://github.com/flacks) [@Halamix2](https://github.com/Halamix2) [@kaendfinger](https://github.com/kaendfinger) [@kamnxt](https://github.com/kamnxt) [@kskarthik](https://github.com/kskarthik) [@lawl](https://github.com/lawl) [@limiter121](https://github.com/limiter121) [@magmastonealex](https://github.com/magmastonealex) [@montvid](https://github.com/montvid) [@MoreRobustThanYou](https://github.com/MoreRobustThanYou) [@rendeko](https://github.com/rendeko) [@rrooij](https://github.com/rrooij) [@shwsh](https://github.com/shwsh) [@tyxieblub](https://github.com/tyxieblub) [@WilliamO7](https://github.com/WilliamO7) [@z3ntu](https://github.com/z3ntu) [@zhenyolka](https://github.com/zhenyolka) [@zhuowei](https://github.com/zhuowei) and everyone who helped them out!*
 
 ## All New 'pmbootstrap init'
@@ -185,19 +189,27 @@ Device [samsung-i9100]:
 
 The `init` action is what you run directly after cloning the source and whenever you want to change your configuration. Besides the devices we already have, it is also possible to type in a **new device name** now. In the "new device name" mode the script is eager to learn about your new device: *Who produced the device? Does it have an SD card slot or a hardware keyboard? Which CPU architecture and bootloader does it have? Oh fastboot you say - why don't you give me an existing **`boot.img`** file from a known working Android ROM while we're at it, so we can **extract the flashing offsets**?*
 
-Once this information is gathered, it presents you with an **automatically generated kernel-package and [device-package](https://wiki.postmarketos.org/wiki/Device_specific_package)**. We get new devices running with their original kernel first, before we try to run the mainline kernel on them. Besides that, new questions were added for the interface: timezone (e.g. *Your host timezone is Europe/London, use that?*), username and **custom default packages** (e.g. *how about `vim`, `gdb`, `strace`?*).
-[![https://wiki.postmarketos.org/wiki/Porting_to_a_new_device](/static/img/2017-12/porting-guide-thumb.png){: class="fr mt3 ml3" style="width:320px"}](https://wiki.postmarketos.org/wiki/Porting_to_a_new_device) Build options rarely need to be changed, so they were grouped together to make it easy to skip them.
+Once this information is gathered, it presents you with an **automatically generated kernel-package and [device-package](https://wiki.postmarketos.org/wiki/Device_specific_package)**. We get new devices running with their original kernel first, before we try to run the mainline kernel on them. Besides that, new questions were added for the interface: timezone (e.g. *Your host timezone is Europe/London, use that?*), username and **custom default packages** (e.g. *how about `vim`, `gdb`, `strace`?*). Build options rarely need to be changed, so they were grouped together to make it easy to skip them.
 
+[#grid side#]
+[![https://wiki.postmarketos.org/wiki/Porting_to_a_new_device](/static/img/2017-12/porting-guide-thumb.png){: class="w200 border"}](https://wiki.postmarketos.org/wiki/Porting_to_a_new_device)
+
+[#grid text#]
 After `init` is through, you are just **one command away from cross-compiling** packages or building a **full installation image**. We have whole new [porting](https://wiki.postmarketos.org/wiki/Porting_to_a_new_device) and [installation](https://wiki.postmarketos.org/wiki/Installation_guide) guides that walk you through the process step by step.
+[#grid end#]
 
 *Thanks to: [@craftyguy](https://github.com/craftyguy), [@drebrez](https://github.com/drebrez), [@ollieparanoid](https://github.com/ollieparanoid)*
 
 ## Binary Repository
 In order to change something in ***Android's* system code**, you need to **download its entire source** code of 100 GB, then do your change and **build everything**, which takes another 150 GB of storage, as well as 16 GB of RAM (or SWAP) and **lots of time** even on the strongest computers (numbers from [here](https://source.android.com/setup/requirements), 2017-12). Subsequent builds are faster, but still you have this initial build which seemingly takes forever.
 
-postmarketOS doesn't use Android's build system, but divides all of its software in **packages** just like a regular Linux distribution. As mentioned previously we directly use Alpine's repository for many packages in postmarketOS - but today we also have a binary repository for our own packages (with interfaces like Plasma Mobile, kernel packages, etc)! While it still has a few [rough edges](https://github.com/postmarketOS/pmbootstrap/issues/970) it gets the job done: Now you **only need to compile the packages that you want to change**. Even if your computer takes hours just to build the Linux kernel it is still feasible to use it for postmarketOS development. All compiler output is cached with [ccache](https://en.wikipedia.org/wiki/Ccache), so subsequent builds are a lot faster as well.
 
-[![](/static/img/2017-12/logo-render.png){: class="fl mr3 mb3 mt3"}](https://github.com/postmarketOS/artwork/commit/805d8762426e69c2b1761e9bb2b0993509043c24)
+[#grid side#]
+[![](/static/img/2017-12/logo-render.png)](https://github.com/postmarketOS/artwork/commit/805d8762426e69c2b1761e9bb2b0993509043c24)
+
+[#grid text#]
+postmarketOS doesn't use Android's build system, but divides all of its software in **packages** just like a regular Linux distribution. As mentioned previously we directly use Alpine's repository for many packages in postmarketOS - but today we also have a binary repository for our own packages (with interfaces like Plasma Mobile, kernel packages, etc)! While it still has a few [rough edges](https://github.com/postmarketOS/pmbootstrap/issues/970) it gets the job done: Now you **only need to compile the packages that you want to change**. Even if your computer takes hours just to build the Linux kernel it is still feasible to use it for postmarketOS development. All compiler output is cached with [ccache](https://en.wikipedia.org/wiki/Ccache), so subsequent builds are a lot faster as well.
+[#grid end#]
 
 This also means that it is possible to update your postmarketOS installation running on your device now. Keep in mind that we have not reached the point yet where we can verify each update on the device migrates properly from the previous version, so you will probably have some breakage sooner or later. Kernel updates should work as well, thanks to the **kernel update script** [@ata2001](https://github.com/ata2001) wrote - but right now you will need to invoke it manually.
 
@@ -208,7 +220,7 @@ This also means that it is possible to update your postmarketOS installation run
 
 As we learned about [kernel config options](https://wiki.postmarketos.org/wiki/Kernel_configuration) that should or should not be enabled to work properly with Linux on smartphones, we created the [`pmbootstrap kconfig_check`](https://github.com/postmarketOS/pmbootstrap/pull/589) action to automatically check the configs. This runs whenever you change the kernel config with `pmbootstrap menuconfig`, and it runs on Travis as well.
 
-<div class="cl"></div>
+
 *Thanks to: [@ata2001](https://github.com/ata2001), [@drebrez](https://github.com/drebrez), [@MartijnBraam](https://github.com/MartijnBraam), [@ollieparanoid](https://github.com/ollieparanoid)*
 
 
@@ -218,9 +230,10 @@ Running postmarketOS in a **QEMU VM**, with `pmbootstrap qemu`, will now use **3
 
 Regarding encryption, it is possible to use [**encrypted swap files**](https://github.com/postmarketOS/pmbootstrap/pull/585) now. Furthermore the **touch screen keyboard for full disk encryption** ([osk-sdl](https://github.com/postmarketOS/osk-sdl)) we [introduced last time](https://postmarketos.org/blog/2017/09/03/100-days-of-postmarketos/#initramfs-is-full-of-new-features) became the [default](https://www.reddit.com/r/postmarketOS/comments/76flrr/fde_unlocking_with_osksdl_has_been_merged/) now, and has helped to make full disk encryption a great deal more practical. You just don't need to fire up a [USB telnet session](https://ollieparanoid.github.io/img/2017-05-26/i9100/telnet.jpg) anymore to unlock your phone each time you reboot it. But for initramfs debug, you can still install a hook that gives you a **debug shell** - and it displays a nice splash screen until you tell it to continue booting.
 
-[![](/static/img/2017-12/debug-shell-i9070-thumb.jpg){: class="fl mr3 mb3"}](/static/img/2017-12/debug-shell-i9070.jpg)
+[#grid bottom#]
+[![](/static/img/2017-12/debug-shell-i9070-thumb.jpg)](/static/img/2017-12/debug-shell-i9070.jpg)
+[#grid end#]
 
-<div class="cl"></div>
 *Thanks to: [@BrianOtto](https://github.com/BrianOtto), [@craftyguy](https://github.com/craftyguy), [@drebrez](https://github.com/drebrez)*
 
 ## Various Refactoring
@@ -252,9 +265,12 @@ The **Plasma Mobile** team recently detailed their [roadmap](https://vizzzion.or
 
 The [somewhat mobile friendly](https://matrix.org/blog/2017/09/28/experiments-with-matrix-on-the-purism-librem5-starring-ubports-and-nheko/) matrix client **[nheko](https://github.com/mujx/nheko)** just had its [0.1.0 release](https://github.com/mujx/nheko/releases/tag/v0.1.0), and while we have [not finished packaging](https://github.com/postmarketOS/pmbootstrap/issues/900) it yet, author [@mujx](https://github.com/mujx) confirmed that he had an earlier version working on postmarketOS in QEMU.
 
+[#grid side#]
 [![](/static/img/2017-12/logo-tslib-thumb.png){: class="fr ml3 mb3" }](https://github.com/kergoth/tslib/issues/89#issuecomment-343443468)
 
+[#grid text#]
 **[tslib](http://www.tslib.org/)** powers the touch screen functionality in our initramfs. Shout out to [@merge](https://github.com/merge) from the project, who was incredibly helpful with [answering questions](https://github.com/kergoth/tslib/issues/103), **[making it work on Android devices](https://github.com/kergoth/tslib/issues/104)** and by patching tslib, the touch driver for the N900 in [the kernel](https://github.com/kergoth/tslib/issues/108#issuecomment-342887195), and even implementing [automatic touch screen detection](https://github.com/kergoth/tslib/issues/108)! To show our appreciation we solicited help for responding to a tslib request for a [vectorized logo](https://github.com/kergoth/tslib/issues/89) in #postmarketOS, and only a day later [@rrcha](https://github.com/rrcha) took care of it.
+[#grid end#]
 
 If you're into smartwatches and want to use an open source OS on them today, check out **[AsteroidOS](https://asteroidos.org/)**. [@FlorianRevest](https://github.com/FlorentRevest) [tagged a version](https://github.com/AsteroidOS/msm-fb-refresher/issues/1) of its `msm-fb-refresher` component, so were able to package it properly to **refresh the framebuffer** in postmarketOS for devices that need it.
 
@@ -262,11 +278,14 @@ If you're into smartwatches and want to use an open source OS on them today, che
 
 ## How Can You Help?
 
-[![](/static/img/2017-12/logo-shirt-thumb.jpg){: class="fr ml3 mb3" }](/static/img/2017-12/logo-shirt.jpg)
-
 You read through the entire thing, didn't you? Looks like you have some interest in this project - and **we can use every helping hand.** We've put the more technical tasks at the bottom of each list. `pmbootstrap` is written in Python, packaging tasks require shell scripting knowledge. 
 
 Tasks that **do not require** a device running postmarketOS:
+
+[#grid side#]
+[![](/static/img/2017-12/logo-shirt-thumb.jpg){: class="w200 border" }](/static/img/2017-12/logo-shirt.jpg)
+
+[#grid text#]
 
 * [Improve documentation](http://wiki.postmarketos.org/) (e.g. [potential apps](https://wiki.postmarketos.org/wiki/Potential_apps), [mainlining](https://wiki.postmarketos.org/wiki/The_Mainline_Kernel))
 * [Donate](https://wiki.postmarketos.org/wiki/Donate)
@@ -279,6 +298,7 @@ Tasks that **do not require** a device running postmarketOS:
 * [Package `anbox` to run Android apps](https://www.reddit.com/r/postmarketOS/comments/6xuo1s/will_postmarketos_support_anbox/)
 * [Package nexmon](https://github.com/postmarketOS/pmbootstrap/issues/592), so we can patch [security holes](https://ollieparanoid.github.io/post/security-warning/) in abandoned Wifi firmware
 * [Improve Software OpenGL rendering](https://wiki.postmarketos.org/wiki/Software_OpenGL)
+[#grid end#]
 
 Tasks that **do require** a mobile device for development:
 
