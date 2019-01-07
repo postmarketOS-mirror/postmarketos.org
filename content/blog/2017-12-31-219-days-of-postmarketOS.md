@@ -17,9 +17,10 @@ We want to have another option: **postmarketOS** is a Linux distribution based o
 
 [#grid text#]
 The Wayland reference compositor [Weston](https://en.wikipedia.org/wiki/Wayland_(display_server_protocol)#Weston) was the first interface we [had running on our devices](https://postmarketos.org/static/img/2017-05-26/i9100-filled.jpg). Good enough for a demo, but to get a **real tablet/smartphone experience** we always had an eye on KDE's [**Plasma Mobile**](https://plasma-mobile.org/) project. After countless hours of hard work we are proud to finally present it running **on real devices!**
-[#grid end#]
 
-Running plasma on real devices with postmarketOS is brand new, which means it has not been tested much and it is **far from a polished experience**. With that being said, it looks like it starts on most devices that can already run Weston but devices with hardware acceleration for graphics are much more usable at this point. The Z2 Tablet is one of the two devices booting postmarketOS and supporting hardware acceleration with the open user space driver [freedreno](https://github.com/freedreno/freedreno/wiki). All other devices must use OpenGL emulation in software due to them requiring proprietary GL drivers. We do have various ideas on improving the situation, such as [better software rendering](https://wiki.postmarketos.org/wiki/Software_OpenGL) or mainlining the devices and using FLOSS userspace drivers where possible.
+Running plasma on real devices with postmarketOS is brand new, which means it has not been tested much and it is **far from a polished experience**.
+[#grid end#]
+With that being said, it looks like it starts on most devices that can already run Weston but devices with hardware acceleration for graphics are much more usable at this point. The Z2 Tablet is one of the two devices booting postmarketOS and supporting hardware acceleration with the open user space driver [freedreno](https://github.com/freedreno/freedreno/wiki). All other devices must use OpenGL emulation in software due to them requiring proprietary GL drivers. We do have various ideas on improving the situation, such as [better software rendering](https://wiki.postmarketos.org/wiki/Software_OpenGL) or mainlining the devices and using FLOSS userspace drivers where possible.
 
 The gif shows Plasma running on the [Sony Xperia Z2 Tablet](https://wiki.postmarketos.org/wiki/Sony_Xperia_Z2_Tablet_(sony-castor-windy)) (click on it to see the full video). Below we show it on the [Google Nexus 5](https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead)), [Samsung Galaxy S Advance](https://wiki.postmarketos.org/wiki/Samsung_Galaxy_S_Advance_(samsung-i9070)), [Sony Xperia Z1 Compact](https://wiki.postmarketos.org/wiki/Sony_Xperia_Z1_Compact_(sony-amami)) and again on the Z2 Tablet, but this time with [@MartijnBraam](https://github.com/MartijnBraam)'s postmarketOS wallpaper straight from our new [artwork](https://github.com/postmarketOS/artwork) repository.
 
@@ -41,9 +42,10 @@ The gif shows Plasma running on the [Sony Xperia Z2 Tablet](https://wiki.postmar
 
 [#grid text#]
 Historically [LuneOS](https://en.wikipedia.org/wiki/LuneOS) and its interface have their roots in **webOS from late Palm devices**. It was rewritten from scratch to use modern technologies, such as Wayland. The UI is based on the concept of *cards* for various apps, which can be swiped away to close them, and related cards can be grouped to *stacks*. That sounds familiar, right?
-[#grid end#]
 
-Much of the UI and default applications are actually implemented as HTML web applications, thus the name webOS. During the porting we have learned that it is possible to run **non-HTML applications as well**, such as Wayland or even [X applications](https://github.com/postmarketOS/pmbootstrap/issues/629#issuecomment-349463841).
+Much of the UI and default applications are actually implemented as HTML web applications, thus the name webOS.
+[#grid end#]
+During the porting we have learned that it is possible to run **non-HTML applications as well**, such as Wayland or even [X applications](https://github.com/postmarketOS/pmbootstrap/issues/629#issuecomment-349463841).
 
 [@PureTryOut](https://github.com/PureTryOut) did the initial packaging while taking a short break from packaging Plasma a while back. Basic applications were packaged, but nothing ran yet. Then [@magmastonealex](https://github.com/magmastonealex) picked it up and with a **tremendous amount of work** he managed to get it going in QEMU. Afterwards [@zhuowei](https://github.com/zhuowei) got a proof of concept on his [Google Nexus 6P](https://wiki.postmarketos.org/wiki/Google_Nexus_6P) without hardware acceleration by using the [Xzibit-method](https://github.com/postmarketOS/pmbootstrap/issues/629#issuecomment-350810081) of running the LuneOS compositor inside of a running Weston compositor (this same trick [also works with plasma](https://github.com/postmarketOS/pmbootstrap/issues/987#issuecomment-350856570) by the way). [@NotKit](https://github.com/NotKit) showed us the real deal with his [Motorola Droid 4](https://github.com/postmarketOS/pmbootstrap/pull/1039) followed by [@magmastonealex](https://github.com/magmastonealex) [Teclast X80 Pro](https://wiki.postmarketos.org/wiki/Teclast_X80_Pro_(teclast-x80pro)) (third and fourth photos below, both have hardware acceleration).
 
@@ -103,7 +105,6 @@ It's always a super exciting time for [#postmarketOS](https://wiki.postmarketos.
 
 Together with the [Google Nexus 7 (2013)](https://wiki.postmarketos.org/wiki/Google_Nexus_7_2013_(asus-flo)), [Teclast X80 Pro](https://wiki.postmarketos.org/wiki/Teclast_X80_Pro_(teclast-x80pro)) and the [Xperia Z2 Tablet](https://wiki.postmarketos.org/wiki/Sony_Xperia_Z2_Tablet_(sony-castor-windy)) &mdash; where [@opendata26](https://github.com/opendata26) fixed a mmc regression introduced with newer kernels &mdash; we now have **six Android-based devices packaged with partial mainline support**. We are still at the beginning of unifying them into one `linux-postmarketos-stable` package, but it's a huge step in the right direction!
 [#grid end#]
-
 While this blog post was in the making, [@fourkbomb](https://github.com/fourkbomb) showed us **even more mainlining progress**. This work is *not* packaged for postmarketOS yet, and he used **[`kexec`](https://forkwhiletrue.me/posts/kexec-on-galaxy-s3/)** to boot from the original kernel forks to the mainline kernel. Nevertheless, the results are impressive! On the right is the [Samsung Galaxy SIII LTE](https://wiki.postmarketos.org/wiki/Samsung_Galaxy_SIII_LTE_(samsung-i9305)) (`i9305`) running mainline (as you can see in the terminal when clicking on it). As if that wasn't cool enough he made it work on similar Samsungs ([`i9300`](/static/img/2017-12/mainline-i9300.jpg), [`n7100`](/static/img/2017-12/mainline-n7100.jpg), [`n7105`](/static/img/2017-12/mainline-n7105.jpg)) as well!
 
 [#grid bottom#]
@@ -209,9 +210,10 @@ In order to change something in ***Android's* system code**, you need to **downl
 
 [#grid text#]
 postmarketOS doesn't use Android's build system, but divides all of its software in **packages** just like a regular Linux distribution. As mentioned previously we directly use Alpine's repository for many packages in postmarketOS - but today we also have a binary repository for our own packages (with interfaces like Plasma Mobile, kernel packages, etc)! While it still has a few [rough edges](https://github.com/postmarketOS/pmbootstrap/issues/970) it gets the job done: Now you **only need to compile the packages that you want to change**. Even if your computer takes hours just to build the Linux kernel it is still feasible to use it for postmarketOS development. All compiler output is cached with [ccache](https://en.wikipedia.org/wiki/Ccache), so subsequent builds are a lot faster as well.
-[#grid end#]
 
-This also means that it is possible to update your postmarketOS installation running on your device now. Keep in mind that we have not reached the point yet where we can verify each update on the device migrates properly from the previous version, so you will probably have some breakage sooner or later. Kernel updates should work as well, thanks to the **kernel update script** [@ata2001](https://github.com/ata2001) wrote - but right now you will need to invoke it manually.
+This also means that it is possible to update your postmarketOS installation running on your device now.
+[#grid end#]
+Keep in mind that we have not reached the point yet where we can verify each update on the device migrates properly from the previous version, so you will probably have some breakage sooner or later. Kernel updates should work as well, thanks to the **kernel update script** [@ata2001](https://github.com/ata2001) wrote - but right now you will need to invoke it manually.
 
 *Thanks to: [@ata2001](https://github.com/ata2001),  [@ollieparanoid](https://github.com/ollieparanoid)*
 
