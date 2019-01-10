@@ -29,7 +29,7 @@
     line-height: 50pt;
     display: block;
 
-    /* treat \n like <br> (we can replace ":" with ":\n" in post titles) */
+    /* treat \n like <br> (we replace ":" with ":\n" in post titles) */
     white-space: pre-line;
 }
 
@@ -96,6 +96,11 @@ img.border {
     }
     .grid-bottom {
         text-align: center;
+    }
+}
+@media screen and (max-width: 500px) {
+	.title h1 {
+        font-size: 22pt;
     }
 }
 @media screen and (max-width: 400px) {

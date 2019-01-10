@@ -70,6 +70,18 @@ h2, h3 {
     }
 }
 
+@media screen and (max-width: 800px) {
+    /* Have a bigger header on the mobile main page: display the slogan, and
+       make the disclaimer bigger (so it does not look ridiculously small
+       compared to the slogan). */
+    .slogan {
+        display: block;
+    }
+    .disclaimer {
+        font-size: 10pt;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .more-link {
         font-size: 10pt;
