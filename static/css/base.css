@@ -176,6 +176,7 @@ footer {
     grid-template-areas: "contribute . nav-bottom"
                          "contribute . copyright";
     grid-template-columns: auto 1fr auto;
+    align-items: center;
 
     background-image: url(/static/img/nexus5-bg-bottom.jpg);
 }
@@ -183,20 +184,52 @@ footer {
 .nav-bottom {
     grid-area: nav-bottom;
     margin: 15px 30px 0px;
-
     text-align: right;
 }
 
-.nav-bottom img {
-    width: 16px;
-    height: 16px;
-    margin-right: 10px;
+/* GRID: ICON BUTTON */
+.icon-button {
+    display: inline-grid;
+    grid-template-areas: "icon-button-icon icon-button-label";
+    grid-template-columns: auto auto;
+    padding: 0px 10px;
+    align-items: center;
+    background: white;
+    text-decoration: none;
+    margin-left: 2px;
 }
 
-.nav-bottom a {
-    background: white;
-    padding: 5px 10px;
-    margin-left: 10px;
+.icon-button img {
+    grid-area: icon-button-icon;
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+.icon-button span {
+    grid-area: icon-button-label;
+    text-decoration: underline;
+}
+
+.icon-button:hover img {
+    /* Obviously this changes the color to green */
+    filter: sepia(1) saturate(5) hue-rotate(80deg);
+}
+
+.contribute {
+    grid-area: contribute;
+    font-size: 20pt;
+    padding: 10px 20px;
+    margin: 0px 30px;
+}
+.contribute span {
+    text-decoration: none;
+}
+
+.contribute img {
+    width: 48px;
+    height: 48px;
+    margin-right: 10px;
 }
 
 .copyright {
@@ -207,40 +240,6 @@ footer {
     font-size: 11pt;
     text-align: right;
 }
-
-.nav-bottom:hover img, .contribute:hover img {
-    /* obviously this changes the color to green */
-    filter: sepia(1) saturate(5) hue-rotate(80deg);
-}
-
-/* GRID: CONTRIBUTE */
-.contribute {
-    grid-area: contribute;
-    display: grid;
-    grid-template-areas: "contrib-img contrib-span";
-    grid-template-columns: 60px 1fr;
-    grid-template-rows: 2px
-                        1fr;
-
-    background: white;
-    padding: 10px 20px 0px;
-    margin: 15px 30px;
-
-    text-decoration: none;
-    font-size: 20pt;
-    height: 60px;
-}
-
-.contribute img {
-    grid-area: contrib-img;
-
-    width: 48px;
-    height: 48px;
-}
-.contribute span {
-    grid-area: contrib-span;
-}
-
 
 /* RESPONSIVENESS */
 @media screen and (max-width: 800px) {
@@ -267,30 +266,25 @@ footer {
 
     /* FOOTER */
     footer {
-        grid-template-areas: "nav-bottom"
-                             "contribute"
+        grid-template-areas: "contribute"
+                             "nav-bottom"
                              "copyright";
 		grid-template-columns: 100%;
     }
-
     .nav-bottom {
-        text-align: left;
+        text-align: center;
     }
-
-    .nav-bottom a {
-        display: inline-block;
-        padding: 0px 10px;
-        margin: 0px 10px 15px 0px;
-        font-size: 12pt;
+    .nav-bottom .icon-button {
+        margin: 0px 2px 10px;
     }
-
+    .nav-bottom .icon-button img {
+        margin-right: 10px;
+    }
     .contribute {
-        margin: 0px 30px 0px;
+        margin: 15px auto 0px;
     }
-
     .copyright {
-        text-align: left;
-        margin: 15px 30px;
+        text-align: center;
     }
 }
 @media screen and (max-width: 600px) {

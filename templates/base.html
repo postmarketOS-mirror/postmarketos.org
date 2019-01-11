@@ -54,21 +54,25 @@
             {% endblock %}
         </main>
         <footer class="footer">
-            <a href="https://wiki.postmarketos.org/wiki/Contributing" class="contribute">
+            <a href="https://wiki.postmarketos.org/wiki/Contributing" class="icon-button contribute">
                 <img src="/static/img/icons-numix/emote-love-symbolic.svg">
                 <span>Contribute</span>
             </a>
             <div class="nav-bottom">
                 <!-- scroll to top: the JS version is slightly nicer, as it does not change the URL.
                                     but the non-JS version works as well. -->
-                <a href="#^" onclick="window.scrollTo(0,0); return false">
-                    <img src="/static/img/icons-numix/go-top-symbolic.svg"
-                        >back to top
+                <a href="#^" onclick="window.scrollTo(0,0); return false" class="icon-button">
+                    <img src="/static/img/icons-numix/go-top-symbolic.svg">
+                    <span>back to top</span>
                 </a>
-                <a href="/blog/feed.atom"><img src="/static/img/icons-numix/application-rss+xml-symbolic.svg"
-                    >feed</a>
-                <a href="/privacy-policy.html"><img src="/static/img/icons-numix/changes-secure-symbolic.svg"
-                    >privacy policy</a>
+                <a href="/blog/feed.atom" class="icon-button">
+                        <img src="/static/img/icons-numix/application-rss+xml-symbolic.svg">
+                        <span>feed</span>
+                </a>
+                <a href="/privacy-policy.html" class="icon-button">
+                    <img src="/static/img/icons-numix/changes-secure-symbolic.svg">
+                    <span>privacy policy</span>
+                </a>
             </div>
             <div class="copyright">
                 &copy; 2019 postmarketOS.org contributors
