@@ -2,7 +2,7 @@ title: "postmarketOS is #movingtogitlab"
 date:  2018-06-27
 ---
 
-[![Broken Sony Xperia Z2 Tablet](/static/img/2018-06/broken-castor-thumb.jpg)](/static/img/2018-06/broken-castor.jpg)
+[![Broken Sony Xperia Z2 Tablet](/static/img/2018-06/broken-castor-thumb.jpg){: class="wfull border" }](/static/img/2018-06/broken-castor.jpg)
 
 For a lot of people, learning that [Microsoft will buy GitHub at the end of 2018](https://www.bloomberg.com/news/articles/2018-06-04/microsoft-agrees-to-buy-coding-site-github-for-7-5-billion) [shattered trust in GitHub](https://jacquesmattheij.com/what-is-wrong-with-microsoft-buying-github) like the glass of [@opendata26](https://gitlab.com/opendata26)'s [Sony Xperia Z2 Tablet](https://wiki.postmarketos.org/wiki/Sony_Xperia_Z2_Tablet_(sony-castor-windy)). Beyond that, GitHub has always employed vendor lock-in: the user's issues and pull requests are hidden behind a rate limited API instead of being available through a proper export feature. And even if you managed to export it through that API, you cannot host your own GitHub instance and modify it as you like because, there is not even a partially open source version of it.
 

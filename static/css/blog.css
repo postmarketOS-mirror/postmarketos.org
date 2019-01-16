@@ -1,0 +1,51 @@
+/* Copyright 2018 Oliver Smith
+   SPDX-License-Identifier: GPL-3.0-or-later
+
+   This file is used for the listing of all blog posts (/blog).
+   See page.css for the file used in single blog posts. */
+
+.post {
+    display: grid;
+    grid-template-areas: ".            . title"
+                         "date         . title"
+                         "reading_time . title"
+                         ".            . title";
+    grid-template-columns: min-content 20px 1fr;
+    grid-template-rows: 1fr
+                        auto
+                        auto
+                        1fr;
+    margin: 10px 0px;
+}
+
+.title {
+    grid-area: title;
+    font-size: 14pt;
+}
+
+.date {
+    grid-area: date;
+    white-space: nowrap;
+    font-size: 12pt;
+}
+
+.reading_time {
+    grid-area: reading_time;
+    color: gray;
+    font-size: 9pt;
+}
+
+/* RESPONSIVENESS */
+@media screen and (max-width: 600px) {
+    .post {
+        grid-template-areas: "date  .     reading_time"
+                             "title title title";
+        grid-template-columns: min-content 10px 1fr;
+        grid-template-rows: auto
+                            auto;
+        margin-bottom: 20px;
+    }
+    .reading_time {
+        font-size: 12pt;
+    }
+}

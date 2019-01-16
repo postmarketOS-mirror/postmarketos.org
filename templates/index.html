@@ -1,98 +1,80 @@
 {% extends 'base.html' %}
 
+{% block title %}
+postmarketOS // real Linux distribution for phones
+{% endblock %}
+
+{%block extra_link %}
+<link rel="stylesheet" href="/static/css/index.css">
+{%endblock%}
+
 {% block body %}
-<h2 class="tc light-headline">A real Linux distribution on the phone</h2>
+<div class="content">
+    <h2>About</h2>
+    We are sick of not receiving updates shortly after buying new phones. Sick of the walled gardens deeply integrated into Android and iOS. That's why we are developing a sustainable, privacy and security focused free software mobile OS that is modeled after traditional Linux distributions. With privilege separation in mind. Let's keep our devices useful and safe until they physically break!
+    <a class="more-link" href="/blog/2017/05/26/intro/">
+        Sounds good, tell me more about the vision
+    </a>
+    <a class="more-link" href="/blog/2018/04/14/lowlevel/#why-is-proprietary-cellular-firmware-a-problem-again">
+        Don't forget to worry about proprietary firmware
+    </a>
+</div>
+<div class="separator"></div>
+<div class="content alt">
+    <h2>Over 100 Booting Devices</h2>
+    <div class="devices">
+        <div class="device1">
+            <a href="/static/img/nexus5-nature.jpg"><img src="/static/img/nexus5-nature.jpg"></a>
+            <h3><a href="https://wiki.postmarketos.org/wiki/Google_Nexus_5_(lg-hammerhead)">
+                Google Nexus 5
+            </a></h3>
 
-<section class="fl w-100 pv4-ns flex items-center justify-center">
-    <img class="ph4 dn di-l" src="{{ url_for('static', filename='img/banner-big.jpg') }}">
-</section>
-
-<section class="fl w-100 pv4-ns flex items-center justify-center">
-    <div class="ph4 nt3 below-banner">
-        <p class="f4">postmarketOS (<i>pmOS</i>), is a touch-optimized, pre-configured <a
-                href="https://alpinelinux.org">Alpine Linux</a> that can be installed on
-        <a href="https://wiki.postmarketos.org/wiki/Devices">smartphones and other mobile devices</a>.
-        The project is at very early stages of development and is <b>not usable for most people yet.</b></p>
+            We've replaced the end-of-life Linux kernel fork from Android <a href="/blog/2018/06/09/one-year/#nexus-5-floss-modem-stack-with-mainline">with a kernel running close to mainline</a>. Proprietary userspace blobs from Android are not necessary to make use of the GPU or connecting to the modem anymore, instead the free software components <a href="https://github.com/freedreno/freedreno/wiki">freedreno</a> and <a href="https://en.wikipedia.org/wiki/OFono">oFono</a> can be used. This allows running <a href="https://plasma-mobile.org">Plasma Mobile</a> (in the picture) and other sophisticated UIs with decent performance.
+        </div>
+        <div class="device2">
+            <a href="/static/img/2018-06/i3-n900.jpg"><img src="/static/img/2018-06/i3-n900.jpg"></a>
+            <h3><a href="https://wiki.postmarketos.org/wiki/Nokia_N900">
+                Nokia N900
+            </a></h3>
+            The N900 has been upgraded to use the mainline kernel as well. While its RAM size and CPU power is surely limited, the attached hardware keyboard still makes it a great minimal hacking device. After all, keyboard-optimized interfaces (such as <a href="https://i3wm.org/">i3</a>, in the picture) and terminal applications are known to be lightweight. <a href="https://xfce.org">XFCE4</a> is another UI that works fine with it.
+        </div>
     </div>
-</section>
 
-<section class="fl w-100 pv4 flex items-center justify-center inverted sustainable">
-    <div class="ph4 nt3">
-    <h2>Creating a <em>sustainable</em> mobile OS</h2>
-    <p>It is 2018. Pick an average PC from 2008 and install a minimal Linux based operating system. You will be able
-        to do basic computing tasks (eg. surfing the web, reading e-mails, listening to music, chatting) just like on an
-        expensive modern PC. You will even get security updates, so your old computer is protected, just like a new one.
-    </p>
-    <p>
-        On the current mobile landscape you get none of that. Even expensive phones only have few years of support. As time progresses,
-        your phone becomes slower and slower, and the newest features will not work on it anymore. But postmarketOS builds upon a real
-        Linux distribution, which has <b>no reason to drop support</b> for old devices at all and (assuming that you choose the right software)
-        keeps the <b>resource usage at a constant minimum</b> instead of increasing it with every release. There's <b>no reason</b> to <b>restrict
-        features</b> (such as full disk encryption) to newer devices either. We want to be able to use our devices <b>until they break!</b>
-    </p>
+    <a class="more-link" href="https://wiki.postmarketos.org/wiki/Devices">
+        Show me all devices
+    </a>
+    <a class="more-link" href="https://wiki.postmarketos.org/wiki/Porting_to_a_new_device">
+        Give me that battle tested porting guide
+    </a>
+
+    <a class="more-link" href="https://wiki.postmarketos.org/wiki/QEMU">
+        Tell me how to spin it up in a VM on my PC
+    </a>
+
+
+</div>
+<div class="separator"></div>
+<div class="content">
+    <h2>What others say</h2>
+
+    <div class="quote">
+    "postmarketOS, Plasma Mobile's favorite platform, is now 1 year old! In one year, development has been astounding, and pmOS is shaping up to be THE through and through Free mobile distro of the future."
     </div>
-    <img class="ph4 dn di-l" src="{{ url_for('static', filename='img/n9-tty.jpg') }}">
-</section>
-
-<section class="fl w-100 pv4 flex items-center justify-center">
-    <img class="ph4 dn di-l" src="{{ url_for('static', filename='img/n900-xfce4.jpg') }}">
-    <div class="ph4 nt3">
-    <h2>Package and run anything you want</h2>
-    <p>
-        postmarketOS is developed in the spirit of regular Linux distributions,
-        so there's no problem in having
-        <b><a href="https://github.com/postmarketOS/pmbootstrap/issues/62">multiple phone interfaces</a></b> and let the
-        user choose. We have <a href="https://plasma-mobile.org/">KDE's Plasma Mobile</a>, <a href="https://wiki.postmarketos.org/wiki/LuneOS_UI">LuneOS UI</a>, <a href="https://wiki.postmarketos.org/wiki/Hildon">Hildon</a>, <a href="https://wiki.postmarketos.org/wiki/MATE">MATE</a>, <a href="https://wiki.postmarketos.org/wiki/XFCE4">XFCE4</a> and <a href="https://wiki.postmarketos.org/wiki/I3wm">i3wm</a> packaged so far.
-    </p>
-    <p>
-        Furthermore postmarketOS will <b>not impose arbitrary restrictions</b> on you. Use the apps from any ecosystem you want (even desktop software).
-        With Alpine's simple package format, you do not need more than a bit of
-        Linux knowledge to <b><a href="https://wiki.postmarketos.org/wiki/Creating_a_package">package your favorite programs</a></b>
-        (assuming that they run on Linux already).
-    </p>
-    </div>
-</section>
-
-<section class="fl w-100 pv4 flex items-center justify-center inverted">
-    <div class="ph4 nt3">
-    <h2>Evaluating options for security holes in firmware</h2>
-    <p>
-        Mobile phones have dedicated chips for the cellular modem and wifi
-        functionality. These chips only run with firmware files, which are <b>little
-        proprietary operating systems</b>, that run alongside of
-        your regular OS (such as Android or postmarketOS). In most cases they even have
-        <b>full access to the device's RAM, GPS and/or microphone</b>.
-    </p>
-    <p>
-        As with all proprietary software, we can not look at the source code to
-        look for <b>security bugs</b> and
-        <b><a href="https://researchcenter.paloaltonetworks.com/2014/12/coolreaper-revealed-backdoor-coolpad-android-devices/">backdoors</a></b>,
-        and we can not update it when such security bugs become public. We are
-        <b>at the mercy of the device manufacturers</b> to get updates, and they refuse to do so
-        after the support of the device runs out.
-    </p>
-    <p>
-        Nowadays, <b>practically every phone</b> that is a <b>few years old</b> has such an
-        issue - no matter which OS or ROM you install. Exploits are available
-        <b><a href="https://bugs.chromium.org/p/project-zero/issues/detail?id=1046#c2">in public</a></b>,
-        so everyone with enough IT knowledge (or money to get IT experts)
-        can turn these older phones into <b>surveillance devices</b>.
-    </p>
-    <p>
-        We are <b>well aware</b> of the situation and
-        <b><a href="https://wiki.postmarketos.org/wiki/Firmware">exploring our options</a></b>. On a side note,
-        we are also interested in using the
-        <b><a href="https://wiki.postmarketos.org/wiki/The_Mainline_Kernel">mainline kernel</a></b>
-        (instead of some outdated Android fork), so we can at least have a safer userspace.
-    </p>
-    </div>
-    <img class="ph4 dn di-l" src="{{ url_for('static', filename='img/fp2-mainline.jpg') }}">
-</section>
-
-<section class="fl w-100 pv4 flex items-center justify-center">
-    <span>
-        Read more on our <a href="/blog/">blog</a>.
-    </span>
-</section>
+    <a href="https://twitter.com/kdecommunity/status/1006084098631364608">KDE Community, 2018-06-11</a>
+</div>
+<div class="separator"></div>
+<div class="content alt">
+    <h2>Architecture</h2>
+    We avoid Android's build system entirely. Instead of building a monolithic system image for each and every device, the whole OS is divided into small packages. These same package binaries can be installed on all devices that share the same CPU architecture. Device specific parts are kept as minimal as possible, ideally there is only one <a href="https://wiki.postmarketos.org/wiki/Device_specific_package">device package</a>. In practice there is often the <a href="https://wiki.postmarketos.org/wiki/Vendor_kernel_specific_package">downstream Linux kernel</a> too, but we are trying to replace those with the <a href="https://wiki.postmarketos.org/wiki/Mainlining_Guide">mainline kernel</a> wherever possible. In the spirit of most other Linux distributions, <a href="https://wiki.postmarketos.org/wiki/Category:Interface">multiple user interfaces</a> from upstream projects are packaged for postmarketOS, such as <a href="https://plasma-mobile.org">Plasma Mobile</a> and Hildon from <a href="https://maemo-leste.github.io/">Maemo Leste</a>.
+    <br>
+    <br>
+    postmarketOS is based on <a href="https://alpinelinux.org">Alpine Linux</a>, which is so tiny (less than 10 MB in size) that development of pmOS can be done quickly on <i>any</i> Linux distribution. We install Alpine in multiple chroots to cross compile packages, build and flash postmarketOS, run it in a VM with <a href="https://wiki.postmarketos.org/wiki/QEMU">QEMU</a> or interactively <a href="https://wiki.postmarketos.org/wiki/Porting_to_a_new_device">port new hardware</a>. All with our lightweight Python script <a href="https://gitlab.com/postmarketOS/pmbootstrap">pmbootstrap</a>, without installing anything on the host system. Writing packages is easy, by the way: as long as you know how to write shell scripts, you are good to go. We have continuous integration in place that makes sure everything builds that gets submitted to <a href="https://gitlab.com/postmarketOS/pmaports/">our packages repository</a>, among other sanity checks.
+    <br>
+    <br>
+    The above design decisions make it feasible to keep the system up-to-date, for all devices at once! Compared to Android, it makes development more efficient and democratic: <a href="/blog/2017/12/31/219-days-of-postmarketOS/#binary-repository">you don't need to afford a powerful and expensive PC</a> to rebuild the entire OS. Just build the tiny part that you are interested in modifying.
+    <br>
+    <br>
+    Speaking of modifying, due to the free software nature of the project, you can change pretty much everything. We don't even require running proprietary Android userspace drivers. In fact all proprietary components (even the WLAN, cellular modem and bluetooth firmware) are optional and you are asked whether you want to include them in your installation. The plan is to binary patch security issues in proprietary firmware with programs like <a href="https://github.com/nexmon">nexmon</a> one day, or even straight <a href="/blog/2018/04/14/lowlevel/">liberation with free software</a>.
+</div>
 
 {% endblock %}

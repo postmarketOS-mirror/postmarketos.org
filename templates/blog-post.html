@@ -1,14 +1,20 @@
-{% extends 'blog-base.html' %}
+{% extends 'base.html' %}
 
-{% block title %}{{ title }}{% endblock %}
+{% block title %}postmarketOS // {{ title }}{% endblock %}
+
+{%block extra_link %}
+<link rel="stylesheet" href="/static/css/page.css">
+{%endblock%}
 
 {% block body %}
-<article class="pa3 lh-copy">
-    <div class="meta gray">
-        <span class="f4">{{ date.strftime('%B %d, %Y') }}</span>
-        <span class="f5 ph3">{{ reading_time }} min. read</span>
-    </div>
-    <h1 class="f2 f2-ns">{{ title }}</h1>
+<div class="title">
+    <h1>{{ title | replace(":", ":\n") }}</h1>
+    <span class="date">{{ date.strftime('%B %d, %Y') }}</span>
+    <span class="reading_time">{{ reading_time }} min. read</span>
+</div>
+<div class="separator"></div>
+
+<article class="content alt">
     {{ html|safe }}
 </article>
 {% endblock %}
