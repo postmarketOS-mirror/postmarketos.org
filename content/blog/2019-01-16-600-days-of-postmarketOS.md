@@ -185,5 +185,6 @@ So this has been a mixed bag of news. But here we are, honest and still having f
 
 ## Comments
 
-* [Reddit](https://old.reddit.com/r/postmarketOS/duplicates/agj2u0/600_days_of_postmarketos/)
+* [Reddit](https://old.reddit.com/r/postmarketOS/duplicates/agj2u0) (threads about this post)
+* [Reddit](https://old.reddit.com/r/linux/duplicates/agjekz) (threads about the new homepage)
 * [HN](https://news.ycombinator.com/item?id=18919101)
