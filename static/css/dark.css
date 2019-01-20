@@ -3,7 +3,7 @@ html body {
 }
 
 html .header {
-    background-image: url(/static/img/nexus5-bg-dark2.jpg);
+    background-image: url(/static/img/nexus5-bg-dark.jpg);
 }
 
 html main {
@@ -29,7 +29,7 @@ html .icon-button {
     background: #000;
 }
 
-html .icon-button img{
+html .icon-button img {
     filter: brightness(999%) brightness(80%);
 }
 
@@ -41,4 +41,13 @@ html .devices div {
 html .devices img {
     border: 1px solid #0b0c0c;
     opacity: 0.8;
+}
+
+html .separator {
+    background-image: url(/static/img/nexus5-bg-bottom-dark.jpg);
+
+}
+
+html footer {
+    background-image: url(/static/img/nexus5-bg-bottom-dark.jpg);
 }
