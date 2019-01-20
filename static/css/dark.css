@@ -1,0 +1,36 @@
+body {
+    background: #232729;
+}
+
+main {
+    background: #2c3133;
+    color: #ccc;
+    border-left: 1px solid #0b0c0c;
+    border-right: 1px solid #0b0c0c;
+}
+
+.content.alt {
+    background: #33393b;
+}
+
+a {
+    color: #fff;
+}
+
+.nav a {
+    background: #000;
+}
+
+.icon-button {
+    background: #000;
+}
+
+.devices div {
+    border: 1px solid #0b0c0c;
+    background: #2c3133;
+}
+
+.devices img {
+    border: 1px solid #0b0c0c;
+    opacity: 0.8;
+}
