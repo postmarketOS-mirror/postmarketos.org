@@ -23,6 +23,9 @@
         {% endif %}
         <link rel="stylesheet" href="/static/css/codehilite.css">
         <link rel="alternate" type="application/atom+xml" title="postmarketOS Blog" href="{{ url_for('atom') }}">
+        {% if request.path.startswith('/dark') %}
+            <link rel="canonical" href="https://postmarketos.org{{ request.path[5:] }}">
+        {% endif %}
         {% block extra_link %}{% endblock %}
     </head>
     <body>
