@@ -8,6 +8,7 @@ import requests
 import pmos_stats.chart as chart
 import argparse
 import re
+import sys
 
 cli = argparse.ArgumentParser(description="postmarketOS Stats generator")
 subparsers = cli.add_subparsers(dest='subcommand')
@@ -33,8 +34,13 @@ def argument(*name_or_flags, **kwargs):
 
 def init():
     if not os.path.isdir('pmaports'):
-        command = ['git', 'clone', 'git@gitlab.com:postmarketOS/pmaports.git']
+        command = ['git', 'clone', 'https://gitlab.com/postmarketOS/pmaports.git']
         subprocess.run(command)
+
+def get_current_commit():
+    command = ['git', 'rev-parse', 'HEAD']
+    stdout = subprocess.check_output(command)
+    return stdout.decode("utf-8").rstrip()
 
 
 def get_commit_per_day(start_ref, end_ref):
@@ -94,9 +100,11 @@ def get_device_wiki_page(device):
         clean = raw.encode('ascii', 'ignore').decode()
 
         for row in json.loads(clean):
-            pagename = row['Page'].replace(' ', '_')
-            url = 'https://wiki.postmarketos.org/wiki/{}'.format(pagename)
-            wiki_cache[row['Codename']] = url
+            for codename in row['Codename'].split(","):
+                codename = codename.strip()
+                pagename = row['Page'].replace(' ', '_')
+                url = 'https://wiki.postmarketos.org/wiki/{}'.format(pagename)
+                wiki_cache[codename] = url
 
     if device in ['nokia-n9', 'nokia-n950']:
         return 'https://wiki.postmarketos.org/wiki/Nokia_N9'
@@ -110,6 +118,13 @@ def get_device_wiki_page(device):
         return 'https://wiki.postmarketos.org/wiki/Samsung_Galaxy_SIII_mini_Value_Edition_(samsung-i8200)'
     if device == 'semc-smultron':
         return 'https://wiki.postmarketos.org/wiki/Sony_Ericsson_Xperia_mini_(semc-smultron)'
+
+    if device not in wiki_cache:
+        print("ERROR: device " + device + " not found in wiki!")
+        print("NOTE: devices in wiki_cache: ")
+        print(str(sorted(list(wiki_cache.keys()))))
+        exit(1)
+
     return wiki_cache[device]
 
 
@@ -141,10 +156,24 @@ def new_devices(args):
     deleted = a - b
 
     if args.md:
+        master = get_current_commit()
+        print("<!-- Generated with: 'pmos-stats " + " ".join(sys.argv[1:]) + "'")
+        print("     Current master (for next time): " + master + " -->")
+        print("")
         for device in sorted(added):
             name = get_device_name(device)
             url = get_device_wiki_page(device)
             print('* [{name} `{code}`]({url})'.format(name=name, code=device, url=url))
+        print('')
+        print('*Thanks to: everyone who ported these devices, see the'
+              ' contributors section in each device\'s wiki page.*')
+
+        if deleted:
+            print("\nNOTE: the following devices have been deleted (renamed?),"
+                  " don't forget to remove them from the list:")
+            for device in sorted(deleted):
+                print(device)
+            print("\nSee also: https://postmarketos.org/renamed")
         return
 
     print('--added--')
