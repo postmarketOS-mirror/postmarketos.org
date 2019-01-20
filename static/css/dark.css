@@ -2,6 +2,10 @@ html body {
     background: #232729;
 }
 
+html .header {
+    background-image: url(/static/img/nexus5-bg-dark2.jpg);
+}
+
 html main {
     background: #2c3133;
     color: #ccc;
