@@ -18,7 +18,7 @@ html .content.alt {
 }
 
 html a {
-    color: #fff;
+    color: #ccc;
 }
 
 html .nav a {
@@ -27,6 +27,10 @@ html .nav a {
 
 html .icon-button {
     background: #000;
+}
+
+html .icon-button img{
+    filter: brightness(999%) brightness(80%);
 }
 
 html .devices div {
