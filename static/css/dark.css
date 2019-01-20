@@ -1,36 +1,36 @@
-body {
+html body {
     background: #232729;
 }
 
-main {
+html main {
     background: #2c3133;
     color: #ccc;
     border-left: 1px solid #0b0c0c;
     border-right: 1px solid #0b0c0c;
 }
 
-.content.alt {
+html .content.alt {
     background: #33393b;
 }
 
-a {
+html a {
     color: #fff;
 }
 
-.nav a {
+html .nav a {
     background: #000;
 }
 
-.icon-button {
+html .icon-button {
     background: #000;
 }
 
-.devices div {
+html .devices div {
     border: 1px solid #0b0c0c;
     background: #2c3133;
 }
 
-.devices img {
+html .devices img {
     border: 1px solid #0b0c0c;
     opacity: 0.8;
 }
