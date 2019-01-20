@@ -45,9 +45,19 @@ html .devices img {
 
 html .separator {
     background-image: url(/static/img/nexus5-bg-bottom-dark.jpg);
-
 }
 
 html footer {
     background-image: url(/static/img/nexus5-bg-bottom-dark.jpg);
+}
+
+html img.border,
+html .grid-bottom img,
+html .grid-bottom video {
+    border: 1px solid #0b0c0c;
+}
+
+html .codehilite {
+    background: black;
+    border: 1px solid #0b0c0c;
 }
