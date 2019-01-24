@@ -34,5 +34,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
     if args.dark:
         app.config['DARK'] = True
+        app.config['FREEZER_BASE_URL'] = 'https://nm.postmarketos.org/'
 
     freezer.freeze()
