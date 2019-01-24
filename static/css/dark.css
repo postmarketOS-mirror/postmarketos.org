@@ -4,6 +4,9 @@ html body {
 
 html .header {
     background-image: url(/static/img/nexus5-bg-dark.jpg);
+    border-left: 1px solid #0b0c0c;
+    border-right: 1px solid #0b0c0c;
+    border-bottom: 1px solid #0b0c0c;
 }
 
 html main {
@@ -45,10 +48,15 @@ html .devices img {
 
 html .separator {
     background-image: url(/static/img/nexus5-bg-bottom-dark.jpg);
+    border-top: 1px solid #0b0c0c;
+    border-bottom: 1px solid #0b0c0c;
 }
 
 html footer {
     background-image: url(/static/img/nexus5-bg-bottom-dark.jpg);
+    border-left: 1px solid #0b0c0c;
+    border-right: 1px solid #0b0c0c;
+    border-top: 1px solid #0b0c0c;
 }
 
 html img.border,
