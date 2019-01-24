@@ -28,4 +28,11 @@ def wiki_redirect():
 
 
 if __name__ == '__main__':
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--dark', help='Render dark version of the website')
+    args = parser.parse_args()
+    if args.dark:
+        app.config['DARK'] = True
+
     freezer.freeze()

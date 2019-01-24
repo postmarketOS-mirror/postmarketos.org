@@ -15,6 +15,7 @@ import page
 
 
 app = Flask(__name__)
+app.config['DARK'] = False
 
 BLOG_CONTENT_DIR = 'content/blog'
 PAGE_CONTENT_DIR = 'content/page'
@@ -50,7 +51,6 @@ WIKI_REDIRECTS = {
 
 
 @app.route('/')
-@app.route('/dark')
 def home():
     return render_template('index.html')
 
@@ -117,7 +117,6 @@ def get_posts(**kwargs):
     return ret
 
 @app.route('/blog/')
-@app.route('/dark/blog/')
 def blog():
     return render_template('blog.html',
                            year_posts=get_posts(create_html=False))
@@ -142,13 +141,11 @@ def atom():
     return feed.get_response()
 
 @app.route('/blog/<y>/<m>/<d>/<slug>/')
-@app.route('/dark/blog/<y>/<m>/<d>/<slug>/')
 def blog_post(y, m, d, slug):
     blog = parse_post('-'.join([y, m, d, slug]) + '.md')
     return render_template('blog-post.html', **blog)
 
 @app.route('/<page>.html')
-@app.route('/dark/<page>.html')
 def static_page(page):
     with open(os.path.join(PAGE_CONTENT_DIR, page + '.md'),
               encoding="utf-8") as handle:
