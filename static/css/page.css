@@ -79,7 +79,7 @@ img.border {
 }
 
 .grid-bottom {
-    grid-area: bottom:
+    grid-area: bottom;
 }
 .grid-bottom img,
 .grid-bottom video {
