@@ -28,3 +28,8 @@ From left to right:
 [@MartijnBraam](https://gitlab.com/MartijnBraam)
 
 The future of Linux on phones is definitely bright, which was just reconfirmed by the awesome people and companies we've met this year. We'll probably hold a talk ourselves next year, and hopefully we'll meet even more people. 🎉
+
+## Comments
+
+* [Reddit](https://old.reddit.com/r/postmarketOS/duplicates/ap6qob/postmarketos_at_fosdem_2019/)
+* [Hacker News](https://news.ycombinator.com/item?id=19129192)
