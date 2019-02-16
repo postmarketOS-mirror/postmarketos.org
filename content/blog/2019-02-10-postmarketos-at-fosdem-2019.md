@@ -6,7 +6,7 @@ Last weekend was [FOSDEM 2019](https://fosdem.org/2019/), Europe's biggest event
 
 The PINE64 company was present with their own stand, and a PINE64 community meeting in the evening. They showed off their almost ready PinePhone development kits, and some other neat hardware like a fully open-source IP camera, their new Pinebook Pro and PineTablet. Since [@z3ntu](https://gitlab.com/z3ntu), [@MartijnBraam](https://gitlab.com/MartijnBraam) and [@PureTryOut](https://gitlab.com/PureTryOut) took their Pine A64-LTS kits with them (which uses basically the same hardware as will be in the PinePhone), we decided to do some work improving our port, and we got the screen working for the first time!
 
-[![](/static/img/2019-02/fosdem-pmos-pine64.jpg){: class="wfull border"}](/static/img/2019-02/pmos-fosdem-pine64.jpg)
+[![](/static/img/2019-02/fosdem-pmos-pine64.jpg){: class="wfull border"}](/static/img/2019-02/fosdem-pmos-pine64.jpg)
 
 There is still work to do as the touchscreen doesn't respond yet, and the patches to make the display work still have to be combined with our current kernel sources. However, with the progress we're currently making, it means we should have a working port once the actual phone releases!
 
