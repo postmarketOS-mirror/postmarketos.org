@@ -1,71 +1,73 @@
-html body {
-    background: #232729;
-}
+@media (prefers-color-scheme: dark) {
+    html body {
+	background: #232729;
+    }
 
-html .header {
-    background-image: url(/static/img/nexus5-bg-dark.jpg);
-    border-left: 1px solid #0b0c0c;
-    border-right: 1px solid #0b0c0c;
-    border-bottom: 1px solid #0b0c0c;
-}
+    html .header {
+	background-image: url(/static/img/nexus5-bg-dark.jpg);
+	border-left: 1px solid #0b0c0c;
+	border-right: 1px solid #0b0c0c;
+	border-bottom: 1px solid #0b0c0c;
+    }
 
-html main {
-    background: #2c3133;
-    color: #ccc;
-    border-left: 1px solid #0b0c0c;
-    border-right: 1px solid #0b0c0c;
-}
+    html main {
+	background: #2c3133;
+	color: #ccc;
+	border-left: 1px solid #0b0c0c;
+	border-right: 1px solid #0b0c0c;
+    }
 
-html .content.alt {
-    background: #33393b;
-}
+    html .content.alt {
+	background: #33393b;
+    }
 
-html a {
-    color: #ccc;
-}
+    html a {
+	color: #ccc;
+    }
 
-html .nav a {
-    background: #000;
-}
+    html .nav a {
+	background: #000;
+    }
 
-html .icon-button {
-    background: #000;
-}
+    html .icon-button {
+	background: #000;
+    }
 
-html .icon-button img {
-    filter: brightness(999%) brightness(80%);
-}
+    html .icon-button img {
+	filter: brightness(999%) brightness(80%);
+    }
 
-html .devices div {
-    border: 1px solid #0b0c0c;
-    background: #2c3133;
-}
+    html .devices div {
+	border: 1px solid #0b0c0c;
+	background: #2c3133;
+    }
 
-html .devices img {
-    border: 1px solid #0b0c0c;
-    opacity: 0.8;
-}
+    html .devices img {
+	border: 1px solid #0b0c0c;
+	opacity: 0.8;
+    }
 
-html .separator {
-    background-image: url(/static/img/nexus5-bg-bottom-dark.jpg);
-    border-top: 1px solid #0b0c0c;
-    border-bottom: 1px solid #0b0c0c;
-}
+    html .separator {
+	background-image: url(/static/img/nexus5-bg-bottom-dark.jpg);
+	border-top: 1px solid #0b0c0c;
+	border-bottom: 1px solid #0b0c0c;
+    }
 
-html footer {
-    background-image: url(/static/img/nexus5-bg-bottom-dark.jpg);
-    border-left: 1px solid #0b0c0c;
-    border-right: 1px solid #0b0c0c;
-    border-top: 1px solid #0b0c0c;
-}
+    html footer {
+	background-image: url(/static/img/nexus5-bg-bottom-dark.jpg);
+	border-left: 1px solid #0b0c0c;
+	border-right: 1px solid #0b0c0c;
+	border-top: 1px solid #0b0c0c;
+    }
 
-html img.border,
-html .grid-bottom img,
-html .grid-bottom video {
-    border: 1px solid #0b0c0c;
-}
+    html img.border,
+    html .grid-bottom img,
+    html .grid-bottom video {
+	border: 1px solid #0b0c0c;
+    }
 
-html .codehilite {
-    background: black;
-    border: 1px solid #0b0c0c;
+    html .codehilite {
+	background: black;
+	border: 1px solid #0b0c0c;
+    }
 }
