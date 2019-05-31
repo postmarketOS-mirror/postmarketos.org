@@ -37,9 +37,16 @@ def init():
         command = ['git', 'clone', 'https://gitlab.com/postmarketOS/pmaports.git']
         subprocess.run(command)
 
+
 def get_current_commit():
     command = ['git', 'rev-parse', 'HEAD']
-    stdout = subprocess.check_output(command)
+    stdout = subprocess.check_output(command, cwd='pmaports')
+    return stdout.decode("utf-8").rstrip()
+
+
+def get_subject(commit):
+    command = ['git', 'log', '-1', '--pretty=%s', commit]
+    stdout = subprocess.check_output(command, cwd='pmaports')
     return stdout.decode("utf-8").rstrip()
 
 
@@ -103,6 +110,7 @@ def get_device_wiki_page(device):
             for codename in row['Codename'].split(","):
                 codename = codename.strip()
                 pagename = row['Page'].replace(' ', '_')
+                pagename = row['Page'].replace("'", '&39;') # otherwise screws up markdown
                 url = 'https://wiki.postmarketos.org/wiki/{}'.format(pagename)
                 wiki_cache[codename] = url
 
@@ -118,11 +126,12 @@ def get_device_wiki_page(device):
         return 'https://wiki.postmarketos.org/wiki/Samsung_Galaxy_SIII_mini_Value_Edition_(samsung-i8200)'
     if device == 'semc-smultron':
         return 'https://wiki.postmarketos.org/wiki/Sony_Ericsson_Xperia_mini_(semc-smultron)'
+    if device == 'planet-geminipda':
+        return 'https://wiki.postmarketos.org/wiki/Planet_Computers_Gemini_PDA_(planet-geminipda)'
 
     if device not in wiki_cache:
         print("ERROR: device " + device + " not found in wiki!")
-        print("NOTE: devices in wiki_cache: ")
-        print(str(sorted(list(wiki_cache.keys()))))
+        print("Edit get_device_wiki_page() in and add the link there: " + __file__)
         exit(1)
 
     return wiki_cache[device]
@@ -156,9 +165,14 @@ def new_devices(args):
     deleted = a - b
 
     if args.md:
+        start = args.fromref
+        subject_start = get_subject(start)
         master = get_current_commit()
+        subject_master = get_subject(master)
         print("<!-- Generated with: 'pmos-stats " + " ".join(sys.argv[1:]) + "'")
-        print("     Current master (for next time): " + master + " -->")
+        print("     Start subject: " + subject_start)
+        print("     Current master (for next time): " + master)
+        print("     Current subject: " + subject_master + " -->")
         print("")
         for device in sorted(added):
             name = get_device_name(device)
@@ -174,6 +188,15 @@ def new_devices(args):
             for device in sorted(deleted):
                 print(device)
             print("\nSee also: https://postmarketos.org/renamed")
+
+        # In the 2 year blog post, the script printed asus-z00vd, although that
+        # was already mentioned in the 600 days post?! Maybe stuff was renamed,
+        # not really worth investigating now. I've double checked all entries,
+        # and all others were reported properly.
+        print()
+        print(" #### NOTE: DOUBLE CHECK THIS LIST! #### ");
+        print()
+
         return
 
     print('--added--')

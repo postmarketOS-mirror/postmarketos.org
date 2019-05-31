@@ -61,6 +61,7 @@
     }
 
     html img.border,
+    html video.border,
     html .grid-bottom img,
     html .grid-bottom video {
 	border: 1px solid #0b0c0c;

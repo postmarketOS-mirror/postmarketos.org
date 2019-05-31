@@ -52,7 +52,9 @@ img.w300 {
 img.wfull {
     width: 100%;
 }
-img.border {
+
+img.border,
+video.border {
     border: 1px solid lightgrey;
 }
 
