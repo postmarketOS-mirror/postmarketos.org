@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}postmarketOS // devices{% endblock %}
+
+{%block extra_link %}
+<link rel="stylesheet" href="/static/css/devices.css">
+{%endblock%}
+
+{% block body %}
+{% for manufacturer, devices in manufacturer_devices.items() %}
+<div class="content {% if loop.index is divisibleby 2 %}alt{% endif %}">
+    <h2>{{ manufacturer }}</h2>
+    {% for device in devices %}
+    <div class="device">
+        <a class="title" href="{{ url_for('device', codename=device.codename) }}">{{ device.name }}</a>
+    </div>
+    {% endfor %}
+</div>
+{% if not loop.last %}
+<div class="separator"></div>
+{% endif %}
+{% endfor %}
+{% endblock %}

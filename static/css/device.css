@@ -1,0 +1,76 @@
+.title h1 {
+    grid-area: title;
+    margin: 60px 0px;
+
+    font-size: 30pt;
+    text-align: center;
+    line-height: 50pt;
+    display: block;
+
+    /* treat \n like <br> (we replace ":" with ":\n" in post titles) */
+    white-space: pre-line;
+}
+
+.grid {
+    display: grid;
+    grid-template-areas: "text . side";
+    grid-template-columns: 1fr 20px 250px;
+    align-items: start;
+}
+
+.grid-text {
+    grid-area: text;
+}
+
+.grid-side {
+    grid-area: side;
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #ccc;
+    font-size: 0.9em;
+}
+
+.grid-side img,
+.grid-side video {
+    max-width: 100%;
+}
+
+.grid-side table {
+    width: 100%;
+}
+
+.grid-text table {
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid #ccc;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.grid-text table th {
+    text-align: left;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+.grid-text table td {
+    padding: 5px;
+    line-height: 1;
+}
+
+.grid-text table .category-row td{
+    border-top: 1px solid #ccc;
+}
+
+.grid-side table th {
+    font-size: 0.9em;
+    text-align: left;
+}
+
+table .subhead {
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+}
+
+table {
+    cells-
+}

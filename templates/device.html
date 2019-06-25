@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}postmarketOS // {{ info.name }}{% endblock %}
+
+{% block extra_link %}
+    <link rel="stylesheet" href="/static/css/device.css">
+{% endblock %}
+
+{% block body %}
+    <div class="title">
+        <h1>{{ info.name }}</h1>
+    </div>
+    <div class="separator"></div>
+
+    <article class="content alt">
+        <div class="grid">
+            <div class="grid-text">
+                wiki text here
+
+                {% if hwtest %}
+                    <h2>Hardware test results</h2>
+                    <table>
+                        <tr>
+                            <th>Category</th>
+                            <th>Model</th>
+                            <th>Status</th>
+                        </tr>
+                        {% for category, components in hwtest.items() %}
+                            <tr class="category-row">
+                                <td rowspan="{{ components|length }}">{{ category }}</td>
+                                <td>{{ components[0].model }}</td>
+                                <td>{{ components[0].status }}</td>
+                            </tr>
+                            {% for component in components[1:] %}
+                                <tr>
+                                    <td>{{ component.model }}</td>
+                                    <td>{{ component.status }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% endfor %}
+                    </table>
+                {% endif %}
+            </div>
+            <div class="grid-side">
+                <table class="infotable">
+                    <tr>
+                        <th>Codename</th>
+                        <td>{{ info.codename }}</td>
+                    </tr>
+                    <tr>
+                        <th>Manufacturer</th>
+                        <td>{{ info.manufacturer }}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="subhead">Hardware</td>
+                    </tr>
+                    <tr>
+                        <th>Architecture</th>
+                        <td>{{ info.arch }}</td>
+                    </tr>
+                    <tr>
+                        <th>Screen</th>
+                        <td>{{ info.screen_width }}x{{ info.screen_height }}</td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </article>
+
+{% endblock %}

@@ -1,4 +1,7 @@
 import collections
+import configparser
+from glob import glob
+
 import logo
 import markdown
 import os
@@ -159,6 +162,62 @@ def static_page(page):
     ], extension_configs={"markdown.extensions.toc": {"anchorlink": True}})
     return render_template('page.html', **data)
 
+def parse_deviceinfo(path):
+    with open(path) as handle:
+        raw = handle.read()
+
+    result = {}
+
+    for line in raw.splitlines():
+        if line.startswith('#') or line.strip() == "":
+            continue
+
+        try:
+            key, value = line.strip().split('=', maxsplit=1)
+            key = key.replace('deviceinfo_', '')
+            value = value.replace('"', '')
+            result[key] = value
+        except Exception as e:
+            pass
+    return result
+
+@app.route('/device/')
+def devices():
+    manufacturer_devices = {}
+
+    for path in glob('pmaports/device/*/deviceinfo'):
+        info = parse_deviceinfo(path)
+        manufacturer = info['manufacturer']
+        if manufacturer not in manufacturer_devices:
+            manufacturer_devices[manufacturer] = []
+
+        manufacturer_devices[manufacturer].append(info)
+
+    sort_dev = collections.OrderedDict(sorted(manufacturer_devices.items()))
+    return render_template('devices.html', manufacturer_devices=sort_dev)
+
+@app.route('/device/<codename>')
+def device(codename):
+    path = 'pmaports/device/device-{}/deviceinfo'.format(codename)
+    info = parse_deviceinfo(path)
+
+    hwtest_path = 'pmaports/device/device-{}/hwtest.ini'.format(codename)
+    hwtest = None
+    if os.path.isfile(hwtest_path):
+        hwtest = {}
+        hwtest_parser = configparser.ConfigParser()
+        hwtest_parser.read(hwtest_path)
+
+        for section in hwtest_parser.sections():
+            if section == "hwtest":
+                continue
+
+            hwtest[section] = []
+
+            for component in hwtest_parser.items(section):
+                hwtest[section].append({'model': component[0], 'status': component[1]})
+                print(component)
+    return render_template('device.html', info=info, hwtest=hwtest)
 
 @app.route('/<slug>/')
 def wiki_redirect(slug):
