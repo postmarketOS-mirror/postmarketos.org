@@ -62,6 +62,10 @@ def robots_txt():
 def dnt_policy():
     return send_file('static/dnt-policy.txt')
 
+@app.route('/.well-known/matrix/server')
+def matrix_server():
+    return send_file('static/matrix-server.json')
+
 def reading_time(content):
     content = re.sub('<[^<]+?>', '', content)
     words_per_minute = 200
