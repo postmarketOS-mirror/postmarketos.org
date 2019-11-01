@@ -32,7 +32,7 @@ It might not have the specs of a modern phone but it’s still one of the most L
 
 ## Comments
 
-* [Reddit](https://old.reddit.com/r/postmarketOS/)
-* [Hacker News](https://news.ycombinator.com/)
+* [Reddit](https://www.reddit.com/r/linux/comments/dq9bfc/postmarketos_ten_years_of_nokia_n900/)
+* [Hacker News](https://news.ycombinator.com/item?id=21422965)
 
 [^1]: From this wonderful review, [Tweakers.net, een Linux bak op Zakformaat](https://tweakers.net/reviews/1403/nokia-n900-linux-bak-op-zakformaat.html)
