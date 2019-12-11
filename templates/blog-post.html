@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 
-{% block title %}postmarketOS // {{ title }}{% endblock %}
+{% block title %}postmarketOS // {{
+	title[13:] if title.startswith("postmarketOS ") else title
+}}{% endblock %}
 
 {%block extra_link %}
 <link rel="stylesheet" href="/static/css/page.css">
