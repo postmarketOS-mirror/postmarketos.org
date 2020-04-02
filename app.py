@@ -39,7 +39,7 @@ WIKI_REDIRECTS = {
     "newarch": "Add_a_new_architecture_to_postmarketOS",
     "oldkernel": "Troubleshooting:host#Host_system_kernel_is_older_than_3.17",
     "osk-port": "Osk-sdl#Porting_to_New_Devices",
-    "pmaports.cfg", "Pmaports.cfg_reference",
+    "pmaports.cfg": "Pmaports.cfg_reference",
     "rebase": "Git_workflow#Updating_pmaports_.28rebasing_on_master.29",
     "recoveryzip": "Android_Recovery_Zip_Installation",
     "renamed": "Renamed_Devices",
