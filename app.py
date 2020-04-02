@@ -24,8 +24,8 @@ REGEX_SPLIT_FRONTMATTER = re.compile(r'^---$', re.MULTILINE)
 
 WIKI_REDIRECTS = {
     "binfmt_misc": "Troubleshooting#sh:_can.27t_create_.2Fproc.2Fsys.2Ffs.2Fbinfmt_misc.2Fregister:_nonexistent_directory",
-    "chat": "Matrix_and_IRC",
     "channels.cfg": "Channels.cfg_reference",
+    "chat": "Matrix_and_IRC",
     "debug-shell": "Inspecting_the_initramfs",
     "depends": "Troubleshooting:dependencies",
     "deviceinfo": "Deviceinfo_reference",
@@ -39,6 +39,7 @@ WIKI_REDIRECTS = {
     "newarch": "Add_a_new_architecture_to_postmarketOS",
     "oldkernel": "Troubleshooting:host#Host_system_kernel_is_older_than_3.17",
     "osk-port": "Osk-sdl#Porting_to_New_Devices",
+    "pmaports.cfg", "Pmaports.cfg_reference",
     "rebase": "Git_workflow#Updating_pmaports_.28rebasing_on_master.29",
     "recoveryzip": "Android_Recovery_Zip_Installation",
     "renamed": "Renamed_Devices",
