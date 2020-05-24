@@ -19,11 +19,11 @@ From left to right:
 [@bshah](https://gitlab.com/bshah),
 [@z3ntu](https://gitlab.com/z3ntu),
 [@ollieparanoid](https://gitlab.com/ollieparanoid),
-[@theblackcrow1](https://gitlab.com/theblackcrow1),
+[@bettycooper](https://gitlab.com/bettycooper),
 [@PureTryOut](https://gitlab.com/PureTryOut),
 [@JBBgameich](https://gitlab.com/JBBgameich)
 
-PS: Shout out to all the Mastodon users, who keep on posting cool [pmOS related content](https://mastodon.technology/tags/postmarketos). [@theblackcrow1](https://gitlab.com/theblackcrow1) set up [@postmarketOS](https://fosstodon.org/@postmarketOS), so you can enjoy small updates from our side right in your favorite free software social network.
+PS: Shout out to all the Mastodon users, who keep on posting cool [pmOS related content](https://mastodon.technology/tags/postmarketos). [@bettycooper](https://gitlab.com/bettycooper) set up [@postmarketOS](https://fosstodon.org/@postmarketOS), so you can enjoy small updates from our side right in your favorite free software social network.
 
 ### Comments
 * [Reddit](https://www.reddit.com/r/postmarketOS/duplicates/9a2nzf/postmarketos_at_akademy_2018/)
