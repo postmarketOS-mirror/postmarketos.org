@@ -117,4 +117,5 @@ goal!
 
 ### Comments
 
-*You're early! Comment links will appear here soon.*
+* [HN](https://news.ycombinator.com/item?id=23371793)
+* [Reddit](https://old.reddit.com/r/postmarketOS/duplicates/gu4wc1/three_years_of_postmarketos/)
