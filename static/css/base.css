@@ -61,7 +61,8 @@ h1 {
     grid-template-areas: "logo   . nav"
                          ".      . nav"
                          "slogan . ."
-                         "slogan . disclaimer";
+                         "slogan . disclaimer"
+			 "slogan . latest-news";
     grid-template-columns: auto 1fr auto;
 
     background-image: url(/static/img/nexus5-bg.jpg);
@@ -87,13 +88,29 @@ h1 {
 
 .disclaimer {
     grid-area: disclaimer;
-    margin: 15px 30px;
+    margin: 15px 30px 10px;
     padding: 3px 7px;
 
     background: black;
     color: white;
     font-weight: bold;
     font-size: 10pt;
+}
+.latest-news {
+    grid-area: latest-news;
+    font-size: 9pt;
+    font-weight: bold;
+    margin: 0px 30px 15px;
+    text-align: right;
+}
+.latest-news a {
+    background: black;
+    color: white;
+    padding: 3px 7px;
+    margin: 15px 0px;
+}
+.latest-news a:hover {
+   color: #0d8000;
 }
 
 /* GRID: LOGO */
@@ -248,7 +265,8 @@ footer {
 		grid-template-areas: "logo       nav        nav"
                              ".          nav        nav"
                              "slogan     slogan     slogan"
-                             "disclaimer disclaimer disclaimer";
+                             "disclaimer disclaimer disclaimer"
+                             "latest-news latest-news latest-news";
 	}
     .logo span {
         font-size: 20pt;
@@ -257,6 +275,9 @@ footer {
         /* Hide the slogan in mobile view everywhere, except on the main page.
            We override this in index.css. */
         display: none;
+    }
+    .latest-news {
+        text-align: left;
     }
 
     /* MAIN */
@@ -293,7 +314,8 @@ footer {
 		grid-template-areas: "logo"
                              "nav"
                              "slogan"
-                             "disclaimer";
+                             "disclaimer"
+                             "latest-news";
 		grid-template-columns: 100%;
 	}
     .logo {
@@ -311,5 +333,8 @@ footer {
     .disclaimer {
         margin: 10px 30px 15px;
         font-size: 8pt;
+    }
+    .latest-news {
+        font-size: 7pt;
     }
 }
