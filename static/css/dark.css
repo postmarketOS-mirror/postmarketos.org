@@ -29,6 +29,14 @@
 	background: #000;
     }
 
+    .table-specs tr:nth-child(2n-1) {
+	background-color: rgba(255,255,255,0.1);
+    }
+
+    div.border, img.border, video.border {
+	border: 1px solid #0b0c0c;
+    }
+
     html .icon-button {
 	background: #000;
     }
