@@ -210,4 +210,5 @@ PINE64 devices and/or Phosh run with postmarketOS:
 
 ## Comments
 
-*(links to comment threads will be added shortly)*
+* [Reddit](https://www.reddit.com/r/postmarketOS/duplicates/h9iqiz/pinephone_postmarketos_community_edition/)
+* [HN](https://news.ycombinator.com/item?id=23528571)
