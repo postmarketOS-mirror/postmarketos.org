@@ -40,6 +40,7 @@ WIKI_REDIRECTS = {
     "merge": "Merge_Workflow",
     "newarch": "Add_a_new_architecture_to_postmarketOS",
     "oldkernel": "Troubleshooting:host#Host_system_kernel_is_older_than_3.17",
+    "on-device-installer": "On-device_installer",
     "osk-port": "Osk-sdl#Porting_to_New_Devices",
     "pmaports.cfg": "Pmaports.cfg_reference",
     "pure-maps": "Pure_Maps",
