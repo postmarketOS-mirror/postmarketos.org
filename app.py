@@ -47,6 +47,7 @@ WIKI_REDIRECTS = {
     "rebase": "Git_workflow#Updating_pmaports_.28rebasing_on_master.29",
     "recoveryzip": "Android_Recovery_Zip_Installation",
     "renamed": "Renamed_Devices",
+    "ssh": "SSH",
     "troubleshooting": "Troubleshooting",
     "usbhook": "Inspecting_the_initramfs",
     "vendorkernel": "Vendor_kernel_specific_package",
