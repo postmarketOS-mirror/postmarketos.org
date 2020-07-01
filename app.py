@@ -36,6 +36,7 @@ WIKI_REDIRECTS = {
     "git": "Git_repository_move",
     "howto-bump-pkgrel-pkgver": "Create_a_package#When_should_pkgver.2Fpkgrel_get_increased.3F",
     "irc": "Matrix_and_IRC",
+    "issues": "How_to_report_issues",
     "matrix": "Matrix_and_IRC",
     "merge": "Merge_Workflow",
     "newarch": "Add_a_new_architecture_to_postmarketOS",
