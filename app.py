@@ -33,6 +33,7 @@ WIKI_REDIRECTS = {
     "devicepkg": "Device_specific_package",
     "devices": "Supported_devices",
     "downstreamkernel-prepare": "Downstream_kernel_specific_package#downstreamkernel_prepare",
+    "fstab": "Fstab",
     "git": "Git_repository_move",
     "howto-bump-pkgrel-pkgver": "Create_a_package#When_should_pkgver.2Fpkgrel_get_increased.3F",
     "irc": "Matrix_and_IRC",
