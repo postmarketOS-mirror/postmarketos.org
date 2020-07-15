@@ -4,7 +4,7 @@ date: 2020-07-15
 
 ## Introduction
 [#grid side#]
-[![](/static/img/2020-07/pinephone-postmarketos-ce-front-thumb.png)](/static/img/2020-06/pinephone-postmarketos-ce-front.png)
+[![](/static/img/2020-07/pinephone-postmarketos-ce-front-thumb.png)](/static/img/2020-07/pinephone-postmarketos-ce-front.png)
 [#grid text#]
 This is a follow-up to last month's
 [PinePhone: postmarketOS community edition](/blog/2020/06/15/pinephone-postmarketos-community-edition/)
