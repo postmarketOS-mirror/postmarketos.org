@@ -126,4 +126,5 @@ to the PINE64 shop and order your PinePhone postmarketOS community edition](http
 
 ## Comments
 
-*Links to commenting threads will be added shortly.*
+* [Reddit](https://www.reddit.com/r/postmarketOS/duplicates/hrpmkk/postmarketos_pinephone_ce_available_for_preorder/)
+* [HN](https://news.ycombinator.com/item?id=23846588)
