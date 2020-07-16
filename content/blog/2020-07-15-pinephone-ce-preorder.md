@@ -47,10 +47,11 @@ PinePhone (thanks to
 [@Cogitri](https://gitlab.com/Cogitri),
 [@Danct12](https://gitlab.com/Danct12),
 [@DolphinChips](https://gitlab.com/DolphinChips),
-[@MartijnBraam](https://gitlab.com/MartijnBraam),
-[@PureTryOut](https://gitlab.com/PureTryOut),
 [@ell1e](https://gitlab.com/ell1e),
-[@ollieparanoid](https://gitlab.com/ollieparanoid)). Most importantly, phone calls
+[@MartijnBraam](https://gitlab.com/MartijnBraam),
+[@megi](https://xnux.eu/devices/pine64-pinephone.html),
+[@ollieparanoid](https://gitlab.com/ollieparanoid),
+[@PureTryOut](https://gitlab.com/PureTryOut)). Most importantly, phone calls
 [with audio](https://gitlab.com/postmarketOS/pmaports/-/merge_requests/1412)
 are fixed on the stable channel. Shout out to [@a-wai](https://gitlab.com/a-wai)
 from [Mobian](https://mobian-project.org/) for developing a workaround to let

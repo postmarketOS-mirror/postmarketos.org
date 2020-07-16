@@ -202,6 +202,7 @@ PINE64 devices and/or Phosh run with postmarketOS:
 [@Icenowy](https://gitlab.com/Icenowy),
 [@MartijnBraam](https://gitlab.com/MartijnBraam),
 [@MayeulC](https://gitlab.com/MayeulC),
+[@megi](https://xnux.eu/devices/pine64-pinephone.html),
 [@Minecrell](https://gitlab.com/Minecrell),
 [@ollieparanoid](https://gitlab.com/ollieparanoid),
 [@PureTryOut](https://gitlab.com/PureTryOut),
