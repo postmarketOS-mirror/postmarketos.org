@@ -23,3 +23,7 @@ The build status of the postmarketOS packages can be found on
 [build.postmarketos.org](https://build.postmarketos.org/). Note that the
 PinePhone postmarketOS CE will be shipped with the stable channel, which does
 not have such breaking changes.
+
+**Update:** rebuilding our packages is in progress, see
+[build.postmarketos.org#72](https://gitlab.com/postmarketOS/build.postmarketos.org/-/issues/72)
+for details.
