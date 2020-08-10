@@ -23,8 +23,8 @@ PAGE_CONTENT_DIR = 'content/page'
 REGEX_SPLIT_FRONTMATTER = re.compile(r'^---$', re.MULTILINE)
 
 WIKI_REDIRECTS = {
-    "binfmt_misc": "Troubleshooting#sh:_can.27t_create_.2Fproc.2Fsys.2Ffs.2Fbinfmt_misc.2Fregister:_nonexistent_directory",
     "apkbuild-options": "APKBUILD_options",
+    "binfmt_misc": "Troubleshooting#sh:_can.27t_create_.2Fproc.2Fsys.2Ffs.2Fbinfmt_misc.2Fregister:_nonexistent_directory",
     "channels.cfg": "Channels.cfg_reference",
     "chat": "Matrix_and_IRC",
     "debug-shell": "Inspecting_the_initramfs",
@@ -37,6 +37,7 @@ WIKI_REDIRECTS = {
     "fstab": "Fstab",
     "git": "Git_repository_move",
     "howto-bump-pkgrel-pkgver": "Create_a_package#When_should_pkgver.2Fpkgrel_get_increased.3F",
+    "intro-phosh": "First_Steps_(Phosh)",
     "irc": "Matrix_and_IRC",
     "issues": "How_to_report_issues",
     "matrix": "Matrix_and_IRC",
