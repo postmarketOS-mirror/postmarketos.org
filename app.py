@@ -46,6 +46,7 @@ WIKI_REDIRECTS = {
     "oldkernel": "Troubleshooting:host#Host_system_kernel_is_older_than_3.17",
     "on-device-installer": "On-device_installer",
     "osk-port": "Osk-sdl#Porting_to_New_Devices",
+    "partitions": "Partition_Layout",
     "pmaports.cfg": "Pmaports.cfg_reference",
     "pure-maps": "Pure_Maps",
     "rebase": "Git_workflow#Updating_pmaports_.28rebasing_on_master.29",
