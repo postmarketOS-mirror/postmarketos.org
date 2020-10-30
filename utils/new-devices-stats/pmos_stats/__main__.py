@@ -68,11 +68,17 @@ def get_commit_per_day(start_ref, end_ref):
 def get_value(git_ref):
     command = ['git', 'checkout', git_ref]
     subprocess.check_output(command, cwd='pmaports')
+    if os.path.isdir('pmaports/device/main'):
+        devices = len(glob.glob('pmaports/device/*/device-*'))
+        kernels = len(glob.glob('pmaports/device/*/linux-*'))
+        kernels += len(glob.glob('pmaports/main/linux-*'))
+        return devices
     if os.path.isdir('pmaports/device'):
         devices = len(glob.glob('pmaports/device/device-*'))
         kernels = len(glob.glob('pmaports/device/linux-*'))
         kernels += len(glob.glob('pmaports/main/linux-*'))
         return devices
+
     devices = len(glob.glob('pmaports/device-*'))
     return devices
 
@@ -80,16 +86,16 @@ def get_value(git_ref):
 def get_devices_on_ref(ref):
     command = ['git', 'checkout', ref]
     subprocess.check_output(command, cwd='pmaports')
-    devices = glob.glob('pmaports/device/device-*')
+    devices = glob.glob('pmaports/device/*/device-*')
     result = set()
     for device in devices:
-        code = device.replace('pmaports/device/device-', '')
+        code = os.path.basename(device).replace("device-", "", 1)
         result.add(code)
     return result
 
 
 def get_device_name(code):
-    infofile = 'pmaports/device/device-{}/deviceinfo'.format(code)
+    infofile = glob.glob(f'pmaports/device/*/device-{code}/deviceinfo')[0]
     with open(infofile) as handle:
         raw = handle.read()
     name = re.search(r'deviceinfo_name="([^"]+)"', raw)
@@ -128,6 +134,8 @@ def get_device_wiki_page(device):
         return 'https://wiki.postmarketos.org/wiki/Sony_Ericsson_Xperia_mini_(semc-smultron)'
     if device == 'planet-geminipda':
         return 'https://wiki.postmarketos.org/wiki/Planet_Computers_Gemini_PDA_(planet-geminipda)'
+    if device == 'xiaomi-wt88047':
+        return 'https://wiki.postmarketos.org/wiki/Xiaomi_Redmi_2_(xiaomi-wt88047)'
 
     if device not in wiki_cache:
         print("ERROR: device " + device + " not found in wiki!")
@@ -177,10 +185,12 @@ def new_devices(args):
         for device in sorted(added):
             name = get_device_name(device)
             url = get_device_wiki_page(device)
-            print('* [{name} `{code}`]({url})'.format(name=name, code=device, url=url))
+            print(f'* [{name}]({url})')
         print('')
+        print('<small>')
         print('*Thanks to: everyone who ported these devices, see the'
               ' contributors section in each device\'s wiki page.*')
+        print('</small>')
 
         if deleted:
             print("\nNOTE: the following devices have been deleted (renamed?),"
