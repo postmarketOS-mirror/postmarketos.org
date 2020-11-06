@@ -5,9 +5,10 @@ import os
 import re
 import yaml
 
+from atom import AtomFeed
+
 from datetime import datetime
 from flask import Flask, render_template, url_for, Response, request, send_file
-from werkzeug.contrib.atom import AtomFeed
 from os import listdir
 
 # current dir
