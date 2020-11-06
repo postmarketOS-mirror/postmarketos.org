@@ -619,3 +619,9 @@ all of our contributors and great community for support. Stay tuned!
 If you'd like to contribute, contact us, or participate in other ways, you can
 find [information on joining our IRC/Matrix channels on the
 wiki.](https://wiki.postmarketos.org/wiki/Matrix_and_IRC)
+
+## Comments
+* [Reddit](https://www.reddit.com/r/postmarketOS/duplicates/jp85fc/postmarketos_in_202011_apps_uis_devices/)
+* [Hacker News](https://news.ycombinator.com/item?id=25008784)
+* [Mastodon](https://fosstodon.org/@postmarketOS/105164355626002535)
+* [Twitter](https://twitter.com/postmarketOS/status/1324752726815813632)
