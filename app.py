@@ -42,6 +42,7 @@ WIKI_REDIRECTS = {
     "issues": "How_to_report_issues",
     "matrix": "Matrix_and_IRC",
     "merge": "Merge_Workflow",
+    "mvcfg": "Packaging:_Override_Configuration_Files#postmarketos-mvcfg",
     "newarch": "Add_a_new_architecture_to_postmarketOS",
     "oldkernel": "Troubleshooting:host#Host_system_kernel_is_older_than_3.17",
     "on-device-installer": "On-device_installer",
