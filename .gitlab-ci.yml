@@ -1,0 +1,39 @@
+---
+
+# global settings
+image: alpine:3.12
+
+# defaults for "only"
+# We need to run the CI jobs in a "merge request specific context", if CI is
+# running in a merge request. Otherwise the environment variable that holds the
+# merge request ID is not available. This means, we must set the "only"
+# variable accordingly - and if we only do it for one job, all other jobs will
+# not get executed. So have the defaults here, and use them in all jobs that
+# should run on both the master branch, and in merge requests.
+# https://docs.gitlab.com/ee/ci/merge_request_pipelines/index.html#excluding-certain-jobs
+.only-default: &only-default
+  only:
+    - master
+    - merge_requests
+    - wip
+
+build:
+  <<: *only-default
+  before_script:
+    - apk -q add python3 py3-pip
+    - python3 -m venv .venv
+    - source .venv/bin/activate
+    - pip3 -q install -r requirements.txt
+  script:
+    - python3 freeze.py
+
+# MR settings
+# (Checks for "Allow commits from members who can merge to the target branch")
+mr-settings:
+  only:
+    - merge_requests
+  before_script:
+    - apk -q add python3
+  script:
+    - wget -q "https://gitlab.com/postmarketOS/ci-common/-/raw/master/check_mr_settings.py"
+    - python3 ./check_mr_settings.py
