@@ -63,3 +63,7 @@ sustainability, maintainability, privacy and security to a level that none of
 the mainstream OS are willing to deliver.
 
 ### Comments
+* [Reddit](https://www.reddit.com/r/postmarketOS/duplicates/k47a39/postmarketos_in_202011_edge_donations/)
+* [HN](https://news.ycombinator.com/item?id=25259987)
+* [Mastodon](https://fosstodon.org/@postmarketOS/105301781092863078)
+* [Twitter](https://twitter.com/postmarketOS/status/1333545783203913728)
