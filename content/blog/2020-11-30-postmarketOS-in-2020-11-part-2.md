@@ -15,11 +15,11 @@ eight hours until we could close that issue, it was pinned down to the wlroots
 0.12.0 upgrade, Phosh developers were informed, log messages were analyzed but
 were not useful and eventually the "offending" commit was found with
 `git bisect`. It turned out that the commit was a feature and not a bug, it
-made wlroots terminate connections if API protocol was not followed as intended
-whereas it would just ignore this previously. An issue was created in the
-[Phosh tracker](https://source.puri.sm/Librem5/phosh/-/issues/422), and a patch
-was submitted to Alpine edge to revert that specific commit until Phosh follows
-that specific API as it was intended (likely soon).
+made wlroots terminate connections if some API protocol was not followed as
+intended whereas it would just ignore this previously. An issue was created in
+the [Phosh tracker](https://source.puri.sm/Librem5/phosh/-/issues/422), and a
+patch was submitted to Alpine edge to revert that specific commit until Phosh
+follows that specific API as it was intended (likely soon).
 
 The story told above was certainly not worth writing a regular blog post about,
 it was so quickly resolved that if each time we dealt with issues like these it
