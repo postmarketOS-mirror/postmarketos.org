@@ -19,6 +19,7 @@ app = Flask(__name__)
 app.config['DARK'] = False
 
 BLOG_CONTENT_DIR = 'content/blog'
+EDGE_CONTENT_DIR = 'content/edge'
 PAGE_CONTENT_DIR = 'content/page'
 
 REGEX_SPLIT_FRONTMATTER = re.compile(r'^---$', re.MULTILINE)
@@ -90,13 +91,14 @@ def reading_time(content):
 def logo_svg():
     return Response(response=logo.create(phone=False), mimetype="image/svg+xml")
 
-def parse_post(post, external_links=False, create_html=True):
+def parse_post(post, external_links=False, create_html=True,
+               dir=BLOG_CONTENT_DIR):
     """ :returns: a parsed post, something like this:
                   {"html": "<parsedhtmlcode...",
                    "url": "url/to/the/post",
                    "reading_time": "10 min",
                    "year": 2019} """
-    with open(os.path.join(BLOG_CONTENT_DIR, post), encoding="utf-8") as handle:
+    with open(os.path.join(dir, post), encoding="utf-8") as handle:
         raw = handle.read()
     frontmatter, content = REGEX_SPLIT_FRONTMATTER.split(raw, 2)
 
@@ -112,22 +114,24 @@ def parse_post(post, external_links=False, create_html=True):
         ], extension_configs={"markdown.extensions.toc": {"anchorlink": True}})
         data['html'] = page.replace(data['html'])
 
-    data['url'] = url_for('blog_post', y=y, m=m, d=d, slug=slug,
+    func="blog_post" if dir == BLOG_CONTENT_DIR else "edge_post"
+
+    data['url'] = url_for(func, y=y, m=m, d=d, slug=slug,
                           _external=external_links)
     data['reading_time'] = reading_time(content)
     data['year'] = y
 
     return data
 
-def get_posts(**kwargs):
+def get_posts(dir=BLOG_CONTENT_DIR, **kwargs):
     """ :returns: posts categorized by year, looks like:
                   {2019: [post1, post2, ...], 2018: [...], ...}
                   post1, post2 are the posts as returned by parse_post() above.
     """
-    posts = sorted(listdir(BLOG_CONTENT_DIR), reverse=True)
+    posts = sorted(listdir(dir), reverse=True)
     ret = collections.OrderedDict()
     for post in posts:
-        parsed = parse_post(post, **kwargs)
+        parsed = parse_post(post, kwargs, dir=dir)
         year = parsed['year']
         if not year in ret:
             ret[year] = []
@@ -137,7 +141,8 @@ def get_posts(**kwargs):
 @app.route('/blog/')
 def blog():
     return render_template('blog.html',
-                           year_posts=get_posts(create_html=False))
+                           year_posts=get_posts(create_html=False),
+                           blog_name="blog")
 
 @app.route('/blog/feed.atom')
 def atom():
@@ -158,10 +163,49 @@ def atom():
                                               datetime.min.time()))
     return feed.get_response()
 
+@app.route('/blog/2020/07/21/breaking-update-in-edge/')
+def blog_post_redirect_edge():
+    # Special post that was created in /blog before /edge was introduced, then
+    # moved.
+    return render_template("redirect.html",
+                           url="/edge/2020/07/21/breaking-update-in-edge/")
+
+
 @app.route('/blog/<y>/<m>/<d>/<slug>/')
 def blog_post(y, m, d, slug):
     blog = parse_post('-'.join([y, m, d, slug]) + '.md')
     return render_template('blog-post.html', **blog)
+
+@app.route('/edge/')
+def edge():
+    return render_template('blog.html',
+                           year_posts=get_posts(create_html=False,
+                                                dir=EDGE_CONTENT_DIR),
+                           blog_name="edge")
+
+@app.route('/edge/feed.atom')
+def edge_atom():
+    feed = AtomFeed(author='postmarketOS',
+                    feed_url=request.url,
+                    icon=url_for('logo_svg', _external=True),
+                    title='Breaking updates in pmOS edge',
+                    url=url_for('edge', _external=True))
+
+    for year, posts in get_posts(external_links=True, dir=EDGE_CONTENT_DIR).items():
+        for post in posts:
+            feed.add(content=post['html'],
+                     content_type='html',
+                     title=post['title'],
+                     url=post['url'],
+                     # midnight
+                     updated=datetime.combine(post['date'],
+                                              datetime.min.time()))
+    return feed.get_response()
+
+@app.route('/edge/<y>/<m>/<d>/<slug>/')
+def edge_post(y, m, d, slug):
+    edge = parse_post('-'.join([y, m, d, slug]) + '.md', dir=EDGE_CONTENT_DIR)
+    return render_template('blog-post.html', **edge)
 
 @app.route('/<page>.html')
 def static_page(page):

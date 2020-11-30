@@ -27,3 +27,5 @@ not have such breaking changes.
 **Update:** rebuilding our packages is in progress, see
 [build.postmarketos.org#72](https://gitlab.com/postmarketOS/build.postmarketos.org/-/issues/72)
 for details.
+
+**Update:** this is fully resolved. The article was moved from /blog to /edge.

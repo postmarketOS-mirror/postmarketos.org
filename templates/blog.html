@@ -1,12 +1,25 @@
 {% extends 'base.html' %}
 
-{% block title %}postmarketOS // blog{% endblock %}
+{% block title %}postmarketOS // {{blog_name}}{% endblock %}
 
 {%block extra_link %}
 <link rel="stylesheet" href="/static/css/blog.css">
 {%endblock%}
 
 {% block body %}
+
+{% if blog_name == "edge" %}
+<div class="content alt">
+    <h2>Breaking updates in edge</h2>
+    postmarketOS has two release channels, <i>edge</i> and <i>stable</i>. While
+    <i>edge</i> gets shiny new features first, it also has breakage from time
+    to time. This page has short posts about required manual interventions and
+    ongoing regressions. An <a href="/edge/feed.atom">Atom feed</a> is
+    available for your favorite web feed reader.
+</div>
+<div class="separator"></div>
+{% endif %}
+
 {% for year, posts in year_posts.items() %}
 <div class="content {% if loop.index is divisibleby 2 %}alt{% endif %}">
     <h2>{{ year }}</h2>
