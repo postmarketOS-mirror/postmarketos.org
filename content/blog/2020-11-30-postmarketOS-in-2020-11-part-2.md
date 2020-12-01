@@ -26,8 +26,7 @@ it was so quickly resolved that if each time we dealt with issues like these it
 would be hard to find the proper blog posts among these edge breakage reports.
 But still, it would be nice if there was something like a second blog where
 people running postmarketOS edge can quickly find information about such issues
-while they are ongoing. The solution we arrived at is a second blog, which will
-only have such breakage reports from postmarketOS edge. Find it at
+while they are ongoing. This is implemented now, find it at
 [postmarketos.org/edge](/edge).
 
 ## Donations
