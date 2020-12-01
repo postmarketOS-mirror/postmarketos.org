@@ -20,3 +20,6 @@ $ pmbootstrap build --arch=aarch64 xorg-server
 If cross compiling xorg-server fails in the last step, add `!check` to the
 `options` in `temp/xorg-server/APKBUILD` of your local
 [pmaports.git](https://wiki.postmarketos.org/wiki/Pmaports.git) clone.
+
+**Update:** packages were temporarily added to postmarketOS
+([!1768](https://gitlab.com/postmarketOS/pmaports/-/merge_requests/1768))
