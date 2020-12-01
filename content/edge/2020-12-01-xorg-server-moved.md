@@ -16,3 +16,7 @@ $ pmbootstrap aportgen --fork-alpine xorg-server xinit xauth xmodmap xrdb
 $ pmbootstrap aportgen --fork-alpine libxfont2 xcb-util-image xcb-util-keysyms xcb-util-renderutil xcb-util-wm
 $ pmbootstrap build --arch=aarch64 xorg-server
 ```
+
+If cross compiling xorg-server fails in the last step, add `!check` to the
+`options` in `temp/xorg-server/APKBUILD` of your local
+[pmaports.git](https://wiki.postmarketos.org/wiki/Pmaports.git) clone.
