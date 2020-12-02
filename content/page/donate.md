@@ -19,7 +19,7 @@ Please confirm your
 donation by writing to **donation@nlnet.nl**. If you choose a different
 method than bank transfer, then you must explicitly write that this donation
 is intended for postmarketOS. You can add to the mail whether your donation is
-anonymous, and optionally send us a message.
+anonymous (if not, please add **donation@postmarketos.org**).
 
 Even small donations are useful, especially if you set them up as automatic
 monthly transfer.
