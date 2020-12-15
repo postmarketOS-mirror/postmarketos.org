@@ -30,5 +30,23 @@ def static_page_or_wiki_redirect():
         yield {'page': slug}
 
 
+def check_conflicts():
+    slugs = ["blog", "edge", "static"]
+
+    for f in listdir(PAGE_CONTENT_DIR):
+        slug = f[:-3]
+        if slug in slugs:
+            raise RuntimeError(f"Page {slug}.md generates conflicting URL!")
+        slugs.append(slug)
+
+    for slug, redirect in WIKI_REDIRECTS.items():
+        if slug in slugs:
+            raise RuntimeError(f"WIKI_REDIRECTS: '{slug}' generates"
+                                " conflicting URL!")
+
+
 if __name__ == '__main__':
+    print("Checking for conflicting URLs...")
+    check_conflicts()
+    print("Freezing the website to 'docs'...")
     freezer.freeze()
