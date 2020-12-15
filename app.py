@@ -207,8 +207,33 @@ def edge_post(y, m, d, slug):
     edge = parse_post('-'.join([y, m, d, slug]) + '.md', dir=EDGE_CONTENT_DIR)
     return render_template('blog-post.html', **edge)
 
+
+@app.route('/move.html')
+def static_page_move():
+    # Do not redirect /move.html to /move/ (as static_page_redirect() would do)
+    # because it is a redirect page already. This would break the JS redirect
+    # code in content/page/move.md and we have linked to it in all the github
+    # projects by now.
+    return static_page_or_wiki_redirect("move")
+
+
 @app.route('/<page>.html')
-def static_page(page):
+def static_page_redirect(page):
+    # Pages in /content/page/ used to be at postmarketos.org/<page>.html
+    return render_template("redirect.html", url=f"/{page}/")
+
+
+@app.route('/<page>/')
+def static_page_or_wiki_redirect(page):
+    """ WARNING: This must be the last route! """
+    page_path = os.path.join(PAGE_CONTENT_DIR, f"{page}.md")
+
+    # Wiki redirect
+    if not os.path.exists(page_path):
+        wiki_url = f"https://wiki.postmarketos.org/wiki/{WIKI_REDIRECTS[page]}"
+        return render_template('redirect.html', url=wiki_url)
+
+    # Page from content/page/*.md
     with open(os.path.join(PAGE_CONTENT_DIR, page + '.md'),
               encoding="utf-8") as handle:
         raw = handle.read()
@@ -220,9 +245,3 @@ def static_page(page):
         'markdown.extensions.toc'
     ], extension_configs={"markdown.extensions.toc": {"anchorlink": True}})
     return render_template('page.html', **data)
-
-
-@app.route('/<slug>/')
-def wiki_redirect(slug):
-    """ WARNING: This must be the last route! """
-    return render_template('redirect.html', url='https://wiki.postmarketos.org/wiki/' + WIKI_REDIRECTS[slug])

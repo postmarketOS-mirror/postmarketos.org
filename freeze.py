@@ -16,15 +16,18 @@ def blog_post():
         yield { 'y': y, 'm': m, 'd': d, 'slug': slug }
 
 @freezer.register_generator
-def static_page():
+def static_page_redirect():
     for f in listdir(PAGE_CONTENT_DIR):
         page = f[:-3]
         yield { 'page': page }
 
 @freezer.register_generator
-def wiki_redirect():
+def static_page_or_wiki_redirect():
+    for f in listdir(PAGE_CONTENT_DIR):
+        page = f[:-3]
+        yield {'page': page}
     for slug, redirect in WIKI_REDIRECTS.items():
-        yield {'slug': slug }
+        yield {'page': slug}
 
 
 if __name__ == '__main__':

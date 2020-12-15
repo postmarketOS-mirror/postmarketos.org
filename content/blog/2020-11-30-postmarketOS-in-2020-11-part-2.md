@@ -33,7 +33,7 @@ while they are ongoing. This is implemented now, find it at
 
 Time and again, we were asked if we accept donations. Today we are happy to
 announce that all the paper work is done.
-[Yes, we are ready for donations!](/donate.html)
+[Yes, we are ready for donations!](/donate/)
 
 Depending on where you live, the donation is tax deductible.
 A variety of payment methods are available: from bank transfer to Bitcoin,
