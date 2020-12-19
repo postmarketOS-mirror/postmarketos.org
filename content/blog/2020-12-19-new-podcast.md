@@ -18,4 +18,7 @@ like the now separate news section for the
 
 ### Comments
 
-<small>(The usual links will be added shortly.)</small>
+* [Reddit](https://www.reddit.com/r/postmarketOS/duplicates/kggjw8/introducing_the_postmarketos_podcast/)
+* [Mastodon](https://fosstodon.org/@postmarketOS/105408895579668108)
+* [Twitter](https://twitter.com/postmarketOS/status/1340402775553961984)
+* [HN](https://news.ycombinator.com/item?id=25481342)
