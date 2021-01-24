@@ -59,6 +59,7 @@ WIKI_REDIRECTS = {
     "renamed": "Renamed_Devices",
     "ssh": "SSH",
     "troubleshooting": "Troubleshooting",
+    "upgrade-phosh": "Upgrade_release",
     "usbhook": "Inspecting_the_initramfs",
     "vendorkernel": "Vendor_kernel_specific_package",
     "warning-repo": "Troubleshooting#Installed_version_newer_than_the_version_in_the_repositories",
