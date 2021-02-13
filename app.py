@@ -50,6 +50,7 @@ WIKI_REDIRECTS = {
     "newarch": "Add_a_new_architecture_to_postmarketOS",
     "oldkernel": "Troubleshooting:host#Host_system_kernel_is_older_than_3.17",
     "on-device-installer": "On-device_installer",
+    "ondev-debug": "On-device_installer#Debug_user",
     "osk-port": "Osk-sdl#Porting_to_New_Devices",
     "partitions": "Partition_Layout",
     "pmaports.cfg": "Pmaports.cfg_reference",
