@@ -228,18 +228,18 @@ def static_page_redirect(page):
     return render_template("redirect.html", url=f"/{page}/")
 
 
-@app.route('/<page>/')
-def static_page_or_wiki_redirect(page):
+@app.route('/<slug>/')
+def static_page_or_wiki_redirect(slug):
     """ WARNING: This must be the last route! """
-    page_path = os.path.join(PAGE_CONTENT_DIR, f"{page}.md")
+    page_path = os.path.join(PAGE_CONTENT_DIR, f"{slug}.md")
 
     # Wiki redirect
     if not os.path.exists(page_path):
-        wiki_url = f"https://wiki.postmarketos.org/wiki/{WIKI_REDIRECTS[page]}"
+        wiki_url = f"https://wiki.postmarketos.org/wiki/{WIKI_REDIRECTS[slug]}"
         return render_template('redirect.html', url=wiki_url)
 
     # Page from content/page/*.md
-    with open(os.path.join(PAGE_CONTENT_DIR, page + '.md'),
+    with open(os.path.join(PAGE_CONTENT_DIR, f"{slug}.md"),
               encoding="utf-8") as handle:
         raw = handle.read()
     frontmatter, content = REGEX_SPLIT_FRONTMATTER.split(raw, 2)
@@ -249,4 +249,5 @@ def static_page_or_wiki_redirect(page):
         'markdown.extensions.codehilite',
         'markdown.extensions.toc'
     ], extension_configs={"markdown.extensions.toc": {"anchorlink": True}})
+    data['html'] = page.replace(data['html'])
     return render_template('page.html', **data)

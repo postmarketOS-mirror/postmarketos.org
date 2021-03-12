@@ -24,10 +24,10 @@ def static_page_redirect():
 @freezer.register_generator
 def static_page_or_wiki_redirect():
     for f in listdir(PAGE_CONTENT_DIR):
-        page = f[:-3]
-        yield {'page': page}
+        slug = f[:-3]
+        yield {'slug': slug}
     for slug, redirect in WIKI_REDIRECTS.items():
-        yield {'page': slug}
+        yield {'slug': slug}
 
 
 def check_conflicts():
