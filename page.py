@@ -1,4 +1,4 @@
-# Copyright 2018 Oliver Smith
+# Copyright 2021 Oliver Smith
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 def grid(html):
@@ -59,9 +59,16 @@ def grid(html):
     return ret
 
 
+def download_table(html):
+    marker = "[#download table#]"
+    if marker not in html:
+        return
+
+
 def replace(html):
     """ Various replacements for blog posts, to make them responsive etc.
         :param html: blog post code (already converted from markdown to HTML)
         :returns: html with replacements made """
     ret = grid(html)
+    ret = download_table(html)
     return ret
