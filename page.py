@@ -1,5 +1,6 @@
 # Copyright 2021 Oliver Smith
 # SPDX-License-Identifier: GPL-3.0-or-later
+import config.download
 
 def grid(html):
     """ Replace the following markers with appropriate <div class="..."> and
@@ -62,13 +63,34 @@ def grid(html):
 def download_table(html):
     marker = "[#download table#]"
     if marker not in html:
-        return
+        return html
+
+    imgs_url = config.download.imgs_url
+    latest_release = config.download.latest_release
+
+    new = "<table class='table-specs'>\n"
+
+    for category, category_cfg in config.download.table.items():
+        new += f"<tr><td colspan='4'><b>{category}</b></td></tr>\n"
+        for device, device_cfg in category_cfg.items():
+            name = device_cfg["name"]
+            link = f"{imgs_url}/{latest_release}/{device}/"
+            new += "<tr><td style='padding: 0px 10px'>\n" \
+                   f"\t<a href='{link}'>{name}</a>\n" \
+                   "</td></tr>\n"
+
+    new += "</table>\n"
+    return html.replace(marker, new)
 
 
 def replace(html):
     """ Various replacements for blog posts, to make them responsive etc.
         :param html: blog post code (already converted from markdown to HTML)
         :returns: html with replacements made """
-    ret = grid(html)
-    ret = download_table(html)
+    ret = html
+    ret = grid(ret)
+    ret = download_table(ret)
+
+    ret = ret.replace("[#latest release#]",
+                      config.download.latest_release_title)
     return ret
