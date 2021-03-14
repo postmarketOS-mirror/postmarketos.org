@@ -49,7 +49,7 @@ h1 {
 }
 
 .separator {
-    background-image: url(/static/img/nexus5-bg-bottom.jpg);
+    background-image: url(/static/img/header.jpg);
     height: 10px;
 }
 
@@ -64,7 +64,7 @@ h1 {
 			 "slogan . latest-news";
     grid-template-columns: auto 1fr auto;
 
-    background-image: url(/static/img/nexus5-bg.jpg);
+    background-image: url(/static/img/header.jpg);
     background-repeat: no-repeat;
     background-position: left bottom;
 }
@@ -217,7 +217,7 @@ footer {
     grid-template-columns: auto 1fr auto;
     align-items: center;
 
-    background-image: url(/static/img/nexus5-bg-bottom.jpg);
+    background-image: url(/static/img/header.jpg);
 }
 
 .nav-bottom {
