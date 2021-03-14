@@ -96,6 +96,9 @@ h1 {
     font-weight: bold;
     font-size: 10pt;
 }
+.disclaimer .green {
+	color: #090;
+}
 .latest-news {
     grid-area: latest-news;
     font-size: 9pt;
