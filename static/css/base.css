@@ -16,7 +16,7 @@ body {
     grid-template-areas: ". header ."
                          ". main   ."
                          ". footer .";
-    grid-template-columns: auto minmax(360px, 1024px) auto;
+    grid-template-columns: auto minmax(340px, 1024px) auto;
     margin: 0px;
 
     background: #f5f5f5;
