@@ -45,8 +45,7 @@ h1 {
 
 .codehilite pre {
     font-size: 10pt;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    overflow: auto;
 }
 
 .separator {
