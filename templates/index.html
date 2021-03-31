@@ -6,71 +6,125 @@ postmarketOS // real Linux distribution for phones
 
 {%block extra_link %}
 <link rel="stylesheet" href="/static/css/index.css">
+<link rel="stylesheet" href="/static/css/page.css">
 {%endblock%}
 
 {% block body %}
 <div class="content">
-    <h2>About</h2>
-    We are sick of not receiving updates shortly after buying new phones. Sick of the walled gardens deeply integrated into Android and iOS. That's why we are developing a sustainable, privacy and security focused free software mobile OS that is modeled after traditional Linux distributions. With privilege separation in mind. Let's keep our devices useful and safe until they physically break!
-    <a class="more-link" href="/blog/2017/05/26/intro/">
-        Sounds good, tell me more about the vision
-    </a>
-    <a class="more-link" href="/blog/2018/04/14/lowlevel/#why-is-proprietary-cellular-firmware-a-problem-again">
-        Don't forget to worry about proprietary firmware
-    </a>
+	<h2>About</h2>
+	<div class="grid">
+		<div class="grid-side">
+			<img alt="" class="w300 border" src="/static/img/pinephone-plasma-mobile.jpg" />
+		</div>
+		<div class="grid-text">
+			We are sick of not receiving updates shortly after
+			buying new phones. Sick of the walled gardens deeply
+			integrated into Android and iOS. That's why we are
+			developing a sustainable, privacy and security focused
+			free software mobile OS that is modeled after
+			traditional Linux distributions. With privilege
+			separation in mind. Let's keep our devices useful and
+			safe until they physically break!
+				<a class="more-link" href="/download">
+				Where can I download the latest release?
+			</a>
+				<a class="more-link" href="https://wiki.postmarketos.org/wiki/Devices">
+				Which devices run postmarketOS?
+			</a>
+				<a class="more-link" href="https://wiki.postmarketos.org/wiki/Porting_to_a_new_device">
+				How do I port my device?
+			</a>
+		</div>
+	</div>
 </div>
 <div class="separator"></div>
 <div class="content alt">
-    <h2>Over 250 Booting Devices</h2>
-    <a class="more-link" href="https://wiki.postmarketos.org/wiki/Devices">
-        Show me all devices
-    </a>
-    <a class="more-link" href="https://wiki.postmarketos.org/wiki/Porting_to_a_new_device">
-        Give me that battle tested porting guide
-    </a>
-
-    <a class="more-link" href="https://wiki.postmarketos.org/wiki/QEMU">
-        Tell me how to spin it up in a VM on my PC
-    </a>
-
-
+	<h2>What others say</h2>
+	<div class="grid">
+		<div class="grid-side">
+			<img alt="" class="w300 border" src="/static/img/osprey-phosh.jpg" />
+		</div>
+		<div class="grid-text">
+			<div class="quote">
+				"postmarketOS [...] is basically the mobile OS
+				I'd build if I wanted to build a mobile OS."
+			</div>
+			<a href="https://drewdevault.com/2019/12/18/PinePhone-review.html">Drew DeVault</a>,
+			FLOSS pioneer and creator of Sourcehut and Sway
+			<br><br>
+			<div class="quote">
+				"With the widespread move to mobile devices,
+				users lose control over their computing
+				devices. PostmarketOS gives us the ability to
+				run code that we can read and modify on these
+				devices."
+			</div>
+			<a href="https://hackaday.com/2019/01/17/postmarketos-turns-600-days-old/">Hackaday</a>,
+			online magazine and defenders of the original meaning of "Hacking"
+		</div>
+	</div>
 </div>
+
 <div class="separator"></div>
 <div class="content">
-    <h2>What others say</h2>
-    <div class="quote">
-    "postmarketOS [...] is basically the mobile OS I’d build if I wanted to build a mobile OS."
-    </div>
-    <a href="https://drewdevault.com/2019/12/18/PinePhone-review.html">Drew DeVault</a>,
-    FLOSS pioneer and creator of Sourcehut and Sway
-</div>
-<div class="content">
-    <div class="quote">
-    "postmarketOS, Plasma Mobile's favorite platform, [...] is shaping up to be THE through and through Free mobile distro of the future."
-    </div>
-    <a href="https://twitter.com/kdecommunity/status/1006084098631364608">KDE Community</a>,
-    authors of the default desktop environment on many Linux distributions
-</div>
-<div class="content">
-    <div class="quote">
-    "With the widespread move to mobile devices, users lose control over their computing devices. PostmarketOS gives us the ability to run code that we can read and modify on these devices."
-    </div>
-    <a href="https://hackaday.com/2019/01/17/postmarketos-turns-600-days-old/">Hackaday</a>,
-    online magazine and defenders of the original meaning of "Hacking"
-</div>
-<div class="separator"></div>
-<div class="content alt">
-    <h2>Architecture</h2>
-    We avoid Android's build system entirely. Instead of building a monolithic system image for each and every device, the whole OS is divided into small packages. These same package binaries can be installed on all devices that share the same CPU architecture. Device specific parts are kept as minimal as possible, ideally there is only one <a href="https://wiki.postmarketos.org/wiki/Device_specific_package">device package</a>. In practice there is often the <a href="https://wiki.postmarketos.org/wiki/Vendor_kernel_specific_package">downstream Linux kernel</a> too, but we are trying to replace those with the <a href="https://wiki.postmarketos.org/wiki/Mainlining_Guide">mainline kernel</a> wherever possible. In the spirit of most other Linux distributions, <a href="https://wiki.postmarketos.org/wiki/Category:Interface">multiple user interfaces</a> from upstream projects are packaged for postmarketOS, such as <a href="https://plasma-mobile.org">Plasma Mobile</a> and <a href="https://source.puri.sm/Librem5/phosh">Phosh</a> from <a href="https://puri.sm/products/librem-5/">Librem 5</a>.
-    <br>
-    <br>
-    postmarketOS is based on <a href="https://alpinelinux.org">Alpine Linux</a>, which is so tiny (less than 10 MB in size) that development of pmOS can be done quickly on <i>any</i> Linux distribution. We install Alpine in multiple chroots to cross compile packages, build and flash postmarketOS, run it in a VM with <a href="https://wiki.postmarketos.org/wiki/QEMU">QEMU</a> or interactively <a href="https://wiki.postmarketos.org/wiki/Porting_to_a_new_device">port new hardware</a>. All with our lightweight Python script <a href="https://gitlab.com/postmarketOS/pmbootstrap">pmbootstrap</a>, without installing anything on the host system. Writing packages is easy, by the way: as long as you know how to write shell scripts, you are good to go. We have continuous integration in place that makes sure everything builds that gets submitted to <a href="https://gitlab.com/postmarketOS/pmaports/">our packages repository</a>, among other sanity checks.
-    <br>
-    <br>
-    The above design decisions make it feasible to keep the system up-to-date, for all devices at once! Compared to Android, it makes development more efficient and democratic: <a href="/blog/2017/12/31/219-days-of-postmarketOS/#binary-repository">you don't need to afford a powerful and expensive PC</a> to rebuild the entire OS. Just build the tiny part that you are interested in modifying.
-    <br>
-    <br>
-    Speaking of modifying, due to the free software nature of the project, you can change pretty much everything. We don't even require running proprietary Android userspace drivers. In fact all proprietary components (even the WLAN, cellular modem and bluetooth firmware) are optional and you are asked whether you want to include them in your installation. The plan is to binary patch security issues in proprietary firmware with programs like <a href="https://github.com/seemoo-lab/nexmon">nexmon</a> one day, or even straight <a href="/blog/2018/04/14/lowlevel/">liberation with free software</a>.
+	<h2>Architecture</h2>
+	<div class="grid">
+		<div class="grid-side">
+			<img alt="" class="w300 border" src="/static/img/2021-03/n900-i3wm-thumb.jpg" />
+		</div>
+		<div class="grid-text">
+			We avoid Android's build system entirely. Instead of building a
+			monolithic system image for each and every device, the whole OS
+			is divided into small packages. These same package binaries can
+			be installed on all devices that share the same CPU
+			architecture. Device specific parts are kept as minimal as
+			possible, ideally there is only one
+			<a href="https://wiki.postmarketos.org/wiki/Device_specific_package">device package</a>.
+			In practice there is often the
+			<a href="https://wiki.postmarketos.org/wiki/Downstream_kernel_specific_package">downstream Linux kernel</a>
+			too, but we are replacing those with
+			<a href="https://wiki.postmarketos.org/wiki/Mainlining">Mainline</a>
+			wherever possible. In the spirit of most other Linux
+			distributions,
+			<a href="https://wiki.postmarketos.org/wiki/Category:Interface">multiple user interfaces</a>
+			from independent projects are packaged for postmarketOS, such as
+			<a href="https://wiki.postmarketos.org/wiki/Plasma_Mobile">Plasma Mobile</a>,
+			<a href="https://wiki.postmarketos.org/wiki/Phosh">Phosh</a>
+			and <a href="https://sr.ht/~mil/Sxmo/">Sxmo</a>.
+		</div>
+	</div>
+	postmarketOS is based on
+	<a href="https://alpinelinux.org">Alpine Linux</a>, which is so	tiny
+	(less than 10 MB in size) that development of pmOS can be done quickly
+	on <i>any</i> Linux distribution. We install Alpine in multiple chroots
+	to cross compile packages, build and flash postmarketOS, run it in a VM
+	with <a href="https://wiki.postmarketos.org/wiki/QEMU">QEMU</a> or
+	interactively
+	<a href="https://wiki.postmarketos.org/wiki/Porting_to_a_new_device">port new hardware</a>.
+	All with our lightweight Python program
+	<a href="https://gitlab.com/postmarketOS/pmbootstrap">pmbootstrap</a>,
+	without installing anything on the host system. Writing packages is
+	easy, by the way: as long as you know how to write shell scripts, you
+	are good to go. We have continuous integration in place that makes sure
+	everything builds that gets submitted to
+	<a href="https://gitlab.com/postmarketOS/pmaports/">our packages repository</a>,
+	among other sanity checks.
+	<br>
+	<br>
+	The above design decisions make it feasible to keep the system
+	up-to-date, for all devices at once! Compared to Android, it makes
+	development more efficient and democratic:
+	<a href="/blog/2017/12/31/219-days-of-postmarketOS/#binary-repository">you don't need to afford a powerful and expensive PC</a>
+	to rebuild the entire OS. Just build the tiny part that you are
+	interested in modifying.
+	<br>
+	<br>
+	Speaking of modifying, due to the free software nature of the project,
+	you can change pretty much everything. We don't even require running
+	proprietary Android userspace drivers. In fact all proprietary
+	components (even the WLAN, cellular modem and bluetooth firmware) are
+	optional and you are asked whether you want to include them in your
+	installation.
 </div>
 
 {% endblock %}
