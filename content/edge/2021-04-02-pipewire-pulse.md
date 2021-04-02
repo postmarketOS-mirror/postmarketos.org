@@ -11,7 +11,7 @@ steps:
 
 ```
 $ sudo apk update
-$ sudo apk add !pipewire-pulse
+$ sudo apk add '!pipewire-pulse'
 $ sudo reboot
 ```
 
