@@ -1,4 +1,4 @@
-title: "Python 3.9 / protobuf temporarily removed for 32-bit arches / qt5-qtsvg error"
+title: "Python 3.9 / protobuf / qt5-qtsvg / q6voiced"
 date: 2021-04-08
 ---
 
@@ -45,3 +45,10 @@ CMake Error at /usr/lib/cmake/Qt5Svg/Qt5SvgConfig.cmake:111 (find_package):
   The following configuration files were considered but not accepted:
     /usr/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake, version: 5.15.2
 ```
+
+## q6voiced
+
+Most android devices in the "community" category of postmarketOS devices are
+affected by a q6voiced bug causing audio stream breakage. This was just fixed
+in
+[pmaports!2103](https://gitlab.com/postmarketOS/pmaports/-/merge_requests/2103).
