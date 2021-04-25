@@ -1,4 +1,5 @@
 import collections
+import json
 import logo
 import markdown
 import os
@@ -13,6 +14,7 @@ from os import listdir
 
 # current dir
 import page
+import config.mirrors
 
 
 app = Flask(__name__)
@@ -220,6 +222,11 @@ def static_page_move():
     # code in content/page/move.md and we have linked to it in all the github
     # projects by now.
     return static_page_or_wiki_redirect("move")
+
+
+@app.route('/mirrors.json')
+def mirrors_json():
+    return json.dumps(config.mirrors.mirrors, indent=4)
 
 
 @app.route('/<page>.html')

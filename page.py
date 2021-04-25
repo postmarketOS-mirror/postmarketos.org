@@ -1,6 +1,9 @@
 # Copyright 2021 Oliver Smith
 # SPDX-License-Identifier: GPL-3.0-or-later
+import html
+
 import config.download
+import config.mirrors
 
 def grid(html):
     """ Replace the following markers with appropriate <div class="..."> and
@@ -83,6 +86,32 @@ def download_table(html):
     return html.replace(marker, new)
 
 
+def mirrors_list(html_str):
+    marker = "[#mirrors list#]"
+    if marker not in html_str:
+        return html_str
+
+    new = ""
+    for name, mirror_cfg in config.mirrors.mirrors.items():
+        urls_html = ""
+        for url in mirror_cfg["urls"]:
+            protocol_esc = html.escape(url.split(":", 1)[0])
+            url_esc = html.escape(url)
+            urls_html += f"<a href='{url_esc}'>{protocol_esc}</a> "
+
+        location = html.escape(mirror_cfg.get("location", "Unknown Location"))
+
+        new += f"<b>{html.escape(name)}</b><br>\n"
+        new += f"{location}\n"
+        if "bandwidth" in mirror_cfg:
+            new += f", {html.escape(mirror_cfg['bandwidth'])}"
+        new += f"<br>\n"
+        new += f"{urls_html}\n"
+        new += "<br><br>\n"
+
+    return html_str.replace(marker, new)
+
+
 def replace(html):
     """ Various replacements for blog posts, to make them responsive etc.
         :param html: blog post code (already converted from markdown to HTML)
@@ -90,6 +119,7 @@ def replace(html):
     ret = html
     ret = grid(ret)
     ret = download_table(ret)
+    ret = mirrors_list(ret)
 
     ret = ret.replace("[#latest release#]",
                       config.download.latest_release_title)
