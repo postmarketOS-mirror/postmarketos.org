@@ -92,7 +92,10 @@ def reading_time(content):
     content = re.sub('<[^<]+?>', '', content)
     words_per_minute = 200
     words = content.split(" ")
-    return int(len(words) / words_per_minute)
+    ret = int(len(words) / words_per_minute)
+
+    # Have at least one minute of reading time
+    return ret if ret > 0 else 1
 
 @app.route('/logo.svg')
 def logo_svg():
