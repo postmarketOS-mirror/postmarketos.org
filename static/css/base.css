@@ -61,7 +61,7 @@ h1 {
                          ".      . nav"
                          "slogan . ."
                          "slogan . disclaimer"
-			 "slogan . latest-news";
+                         "slogan . latest-news";
     grid-template-columns: auto 1fr auto;
 
     background-image: url(/static/img/header.jpg);
@@ -100,6 +100,7 @@ h1 {
 
 .disclaimer {
     grid-area: disclaimer;
+    text-align: right;
 }
 .disclaimer-text {
     background: #000000d1;
@@ -110,19 +111,20 @@ h1 {
     font-size: 10pt;
 }
 .disclaimer .green {
-	color: #090;
+    color: #090;
 }
 .latest-news {
     grid-area: latest-news;
+    background: #000000d1;
+    color: white;
     font-size: 9pt;
     font-weight: bold;
     margin: 5px 30px 15px;
+    padding: 5px 10px;
     text-align: right;
 }
 .latest-news a {
-    background: #000000d1;
     color: white;
-    padding: 5px 10px;
     margin: 15px 0px;
 }
 .latest-news a:hover {
@@ -198,29 +200,17 @@ h1 {
 }
 
 .nav a {
-    font-size: 10pt;
+    font-size: 14pt;
     background: #ffffffcf;
     padding: 5px 4px;
     margin-left: 1px;
-    font-weight: bold;
+    text-decoration: none;
 }
 
-.nav-row1 a {
-    font-size: 15pt;
-}
-
-.nav-row2 a {
-    font-size: 14pt;
-}
-
-.nav-row4 a {
-    font-size: 8pt;
-}
-
-#nav-donate {
+#nav-download {
     background: #009900bf;
 }
-#nav-donate:hover {
+#nav-download:hover {
     color: white;
 }
 
@@ -263,7 +253,7 @@ footer {
 
 .icon-button span {
     grid-area: icon-button-label;
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 .icon-button:hover img {
@@ -299,17 +289,21 @@ footer {
 /* RESPONSIVENESS */
 @media screen and (max-width: 800px) {
     /* HEADER */
-	.header {
-		grid-template-areas: "logo       nav        nav"
+    .header {
+        grid-template-areas: "logo       nav        nav"
                              ".          nav        nav"
                              "slogan     slogan     slogan"
                              "disclaimer disclaimer disclaimer"
                              "latest-news latest-news latest-news";
-	}
+    }
     .logo span {
         font-size: 20pt;
     }
+    .disclaimer {
+        text-align: left;
+    }
     .latest-news {
+        margin-right: auto;
         text-align: left;
     }
 
@@ -323,7 +317,7 @@ footer {
         grid-template-areas: "contribute"
                              "nav-bottom"
                              "copyright";
-		grid-template-columns: 100%;
+        grid-template-columns: 100%;
     }
     .nav-bottom {
         text-align: center;
