@@ -100,12 +100,17 @@ span.img-center-subtext {
 }
 
 .grid-side {
+    display: flex;
+    flex-direction: column;
     grid-area: side;
     text-align: right;
 }
 .grid-side img,
 .grid-side video {
     max-width: 100%;
+}
+.grid-side label {
+    text-align: center;
 }
 
 .grid-bottom {
@@ -119,26 +124,26 @@ span.img-center-subtext {
 
 /* RESPONSIVENESS */
 @media screen and (max-width: 800px) {
-	.grid {
-		grid-template-areas: "side"
+    .grid {
+        grid-template-areas: "side"
                              "text"
                              "bottom";
-		grid-template-columns: 100%;
-	}
+        grid-template-columns: 100%;
+    }
     .grid-side {
-        text-align: center;
+        align-items: center;
     }
     .grid-bottom {
         text-align: center;
     }
 }
 @media screen and (max-width: 500px) {
-	.title h1 {
+    .title h1 {
         font-size: 22pt;
     }
 }
 @media screen and (max-width: 400px) {
-	.date,
+    .date,
     .reading_time {
         font-size: 12pt;
     }
