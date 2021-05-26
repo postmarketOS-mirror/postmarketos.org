@@ -94,3 +94,13 @@ Q&A: "I cannot go back to an Android anymore."
 (PeerTube),
 [odysee.com](https://odysee.com/@postmarketOS:1/alpineconf-2021-oliver:5)
 (LBRY)
+
+### Comments
+* [Mastodon](https://fosstodon.org/@postmarketOS/106302868167016914)
+* [Lemmy](https://lemmy.ml/post/67466)
+<small>
+* [Hacker News](https://news.ycombinator.com/item?id=27294222)
+* [Twitter](https://twitter.com/postmarketOS/status/1397619417211621378)
+* [Reddit](https://www.reddit.com/r/linux/comments/nlo0j3/four_years_of_postmarketos_alpineconf_2021/)
+([2](https://www.reddit.com/r/postmarketOS/comments/nlnzph/four_years_of_postmarketos_alpineconf_2021/))
+</small>
