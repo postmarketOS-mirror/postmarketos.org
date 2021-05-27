@@ -4,8 +4,8 @@ date: 2021-05-27
 
 A new feature has been implemented in postmarketOS edge
 ([!2155](https://gitlab.com/postmarketOS/pmaports/-/merge_requests/2155)):
-new U-Boot versions will be rolled after upgrading u-boot-pinephone, which is
-used for both the PinePhone and PineTab.
+new U-Boot versions will be rolled out after upgrading u-boot-pinephone, which
+is used for both the PinePhone and PineTab.
 
 Before this change, the bootloader would only get updated after running
 `update-u-boot` manually (which is still possible and can be used to change the
