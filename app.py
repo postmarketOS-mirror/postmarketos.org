@@ -40,6 +40,7 @@ WIKI_REDIRECTS = {
     "devices": "Supported_devices",
     "downstreamkernel-prepare": "Downstream_kernel_specific_package#downstreamkernel_prepare",
     "firefox-cfg": "Firefox#postmarketOS_specific_configuration",
+    "firewall": "Firewall",
     "fstab": "Fstab",
     "git": "Git_repository_move",
     "howto-bump-pkgrel-pkgver": "Create_a_package#When_should_pkgver.2Fpkgrel_get_increased.3F",
