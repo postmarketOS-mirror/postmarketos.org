@@ -3,8 +3,9 @@ date: 2021-06-03
 ---
 
 As of writing, the mirror dl-2.alpinelinux.org is outdated by four days for
-Alpine edge, on which postmarketOS edge is based. It is up to date for v3.12,
-on which our latest release, v21.03 is based.
+Alpine edge, on which postmarketOS edge is based. <del>It is up to date for v3.12,
+on which our latest release, v21.03 is based.</del> Latest release is based on v3.13,
+for which it may also be outdated.
 
 Find the current mirror status on
 [mirrors.alpinelinux.org](https://mirrors.alpinelinux.org/).
