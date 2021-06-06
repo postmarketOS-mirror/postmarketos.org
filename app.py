@@ -44,6 +44,7 @@ WIKI_REDIRECTS = {
     "fstab": "Fstab",
     "git": "Git_repository_move",
     "howto-bump-pkgrel-pkgver": "Create_a_package#When_should_pkgver.2Fpkgrel_get_increased.3F",
+    "i9305": "Samsung_Galaxy_SIII_LTE_(samsung-i9305)",
     "intro-phosh": "First_Steps_(Phosh)",
     "irc": "Matrix_and_IRC",
     "issues": "How_to_report_issues",
