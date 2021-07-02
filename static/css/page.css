@@ -170,3 +170,16 @@ span.img-center-subtext {
 .table-specs tr:nth-child(2n-1) {
     background-color: white;
 }
+
+.new {
+    display: inline-block;
+    color: white;
+    padding: 0px 6px;
+    font-size: 11pt;
+    border-radius: 7px;
+    background-color: #090;
+    position: relative;
+    top: -3px;
+    margin-left: 5px;
+    line-height: 17pt;
+}
