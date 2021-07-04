@@ -19,7 +19,6 @@ be fixed (e.g. SMS not working). Refer to the
 [#latest release#] is recommended for best stability.
 
 ### Edge (Rolling Release)
-[#grid end#]
 Development happens in edge, the rolling release channel of postmarketOS.
 Find downloads for devices in *main* and *community* categories
 [here](https://images.postmarketos.org/bpo/edge/). To install postmarketOS to
@@ -28,6 +27,7 @@ one of the many
 or to customize your installation otherwise (e.g. install another user
 interface), use *pmbootstrap* as explained in the
 [installation guide](https://wiki.postmarketos.org/wiki/Installation_guide).
+[#grid end#]
 
 Edge is recommended for development (latest features,
 [occasional breakage](/edge/)).
