@@ -3,8 +3,8 @@
 
 imgs_url = "https://images.postmarketos.org/bpo"
 
-latest_release = "v21.03"
-latest_release_title = "Release v21.03.1"
+latest_release = "v21.06"
+latest_release_title = "Release v21.06"
 
 table = {
     "Main": {
